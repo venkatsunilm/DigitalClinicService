@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--Navigation graph editor-->
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_digitalclinic"
+    app:startDestination="@id/welcome_dest">
+
+    <fragment
+        android:id="@+id/welcome_dest"
+        android:name="com.beehealthy.digitalclininc.ui.WelcomeFragment"
+        android:label="welcome page"
+        tools:layout="@layout/welcome_constr_fragment">
+        <action
+            android:id="@+id/action_welcome_dest_to_home_dest"
+            app:destination="@id/home_dest"/>
+<!--        // TODO: send args to other fragment, under implementation-->
+<!--        <argument-->
+<!--            android:name="flowStepNumber"-->
+<!--            app:argType="integer"-->
+<!--            android:defaultValue="1"/>-->
+    </fragment>
+
+    <fragment
+        android:id="@+id/home_dest"
+        android:name="com.beehealthy.digitalclininc.ui.PatientHomeViewPagerFragment"
+        android:label="events list"
+        tools:layout="@layout/patient_home_view_pager_fragment">
+        <action
+            android:id="@+id/action_home_dest_setting_dest"
+            app:destination="@id/settings_dest"/>
+        <action
+            android:id="@+id/action_home_dest_to_welcome_dest"
+            app:destination="@id/welcome_dest" />
+        <action
+            android:id="@+id/action_home_dest_to_appointmentDetails_dest"
+            app:destination="@id/appointmentDetails_dest" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/settings_dest"
+        android:name="com.beehealthy.digitalclininc.ui.SettingsFragment"
+        android:label="SettingsFragment"
+        tools:layout="@layout/settings_fragment">
+        <action
+            android:id="@+id/action_settings_dest_to_home_dest"
+            app:destination="@id/home_dest" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/appointmentDetails_dest"
+        android:name="com.beehealthy.digitalclininc.ui.AppointmentDetailsFragment"
+        android:label="appointment_details_fragment"
+        tools:layout="@layout/appointment_details_fragment" >
+        <action
+            android:id="@+id/action_appointmentDetails_to_home_dest"
+            app:destination="@id/home_dest" />
+    </fragment>
+
+
+</navigation>

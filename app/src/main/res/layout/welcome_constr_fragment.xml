@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/white"
+    tools:context=".WelcomeFragment">
+
+<!--    // used constraint layout to test the performance,-->
+<!--    // we can also use Liner layout instead of this, please find the file welcome_linear_fragment -->
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/phone_view"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="10dp"
+                android:layout_marginTop="33dp"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/welcome_screen_mehilainen_phone_image"
+                android:scaleType="fitCenter"
+                android:src="@drawable/mehilainen_phone_img"
+                app:layout_constraintBottom_toTopOf="@+id/welcome_header"
+                app:layout_constraintDimensionRatio="w,2:3"
+                app:layout_constraintEnd_toEndOf="@+id/welcome_header"
+                app:layout_constraintStart_toStartOf="@+id/welcome_header"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/welcome_header"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="@string/welcome_to_omamehlainen"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                android:textColor="@color/dark_green"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/welcome_subheader"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/phone_view" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/welcome_subheader"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="@string/health_services_always"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
+                android:textColor="@color/dark_green"
+                app:layout_constraintEnd_toEndOf="@+id/welcome_header"
+                app:layout_constraintStart_toStartOf="@+id/welcome_header"
+                app:layout_constraintTop_toBottomOf="@+id/welcome_header" />
+
+
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:elevation="2dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="10dp"
+                app:layout_constraintBottom_toTopOf="@+id/no_finnish_number"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/terms_sign_in"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="10dp"
+                        android:text="@string/i_have_read"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
+                        android:textColor="@color/black"
+                        app:layout_constraintBottom_toTopOf="@+id/secure_sign_in_button"
+                        app:layout_constraintEnd_toEndOf="@+id/secure_sign_in_button"
+                        app:layout_constraintStart_toStartOf="@+id/secure_sign_in_button"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/secure_sign_in_button"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="10dp"
+                        android:layout_marginStart="24dp"
+                        android:layout_marginEnd="24dp"
+                        android:backgroundTint="@color/dark_green"
+                        android:paddingHorizontal="50dp"
+                        android:paddingVertical="10dp"
+                        android:text="@string/secure_sign_in"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        app:layout_constraintBottom_toTopOf="@+id/terms_secure_sign_in_text"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/terms_sign_in" />
+
+                    <!--TODO: Add image view in Linear layout-->
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/terms_secure_sign_in_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/secure_sign_in_by_telia"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                        android:textColor="@color/black"
+                        app:layout_constraintBottom_toTopOf="@+id/other_Sign_text"
+                        app:layout_constraintEnd_toEndOf="@+id/secure_sign_in_button"
+                        app:layout_constraintStart_toStartOf="@+id/secure_sign_in_button"
+                        app:layout_constraintTop_toBottomOf="@+id/secure_sign_in_button" />
+
+                    <!--TODO: Add image view in Linear layout-->
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/other_Sign_text"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginVertical="15dp"
+                        android:maxLines="4"
+                        android:text="@string/or_view_the_service"
+                        android:textAlignment="textStart"
+                        android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
+                        android:textColor="@color/black"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="@+id/secure_sign_in_button"
+                        app:layout_constraintStart_toStartOf="@+id/secure_sign_in_button"
+                        app:layout_constraintTop_toBottomOf="@+id/terms_secure_sign_in_text" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/no_finnish_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="16dp"
+                android:text="@string/don_t_have_a_finnnish"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle1"
+                android:textColor="@color/dark_green"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</layout>

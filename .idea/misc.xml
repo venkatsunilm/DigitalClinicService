@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/VenkatMinchala/AndroidStudioProjects/DigitalClininc/app/src/main/res/drawable-v24/ic_android.xml" value="0.233" />
+        <entry key="..\:/Users/VenkatMinchala/AndroidStudioProjects/DigitalClininc/app/src/main/res/drawable-v24/ic_home.xml" value="0.233" />
+        <entry key="..\:/Users/VenkatMinchala/AndroidStudioProjects/DigitalClininc/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1355" />
+        <entry key="..\:/Users/VenkatMinchala/AndroidStudioProjects/DigitalClininc/app/src/main/res/drawable-v24/ic_photo_library.xml" value="0.233" />
+        <entry key="..\:/Users/VenkatMinchala/AndroidStudioProjects/DigitalClininc/app/src/main/res/drawable-v24/ic_plus.xml" value="0.233" />
+        <entry key="..\:/Users/VenkatMinchala/AndroidStudioProjects/DigitalClininc/app/src/main/res/drawable-v24/tab_icon_color_selector.xml" value="0.399" />
+        <entry key="..\:/Users/VenkatMinchala/AndroidStudioProjects/DigitalClininc/app/src/main/res/drawable/events_tab_selector.xml" value="0.233" />
+        <entry key="..\:/Users/VenkatMinchala/AndroidStudioProjects/DigitalClininc/app/src/main/res/drawable/ic_detail_back.xml" value="0.233" />
+        <entry key="..\:/Users/VenkatMinchala/AndroidStudioProjects/DigitalClininc/app/src/main/res/drawable/ic_detail_share.xml" value="0.1355" />
+        <entry key="..\:/Users/VenkatMinchala/AndroidStudioProjects/DigitalClininc/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1355" />
+        <entry key="..\:/Users/VenkatMinchala/AndroidStudioProjects/DigitalClininc/app/src/main/res/drawable/prescription_tab_selector.xml" value="0.233" />
+        <entry key="..\:/Users/VenkatMinchala/AndroidStudioProjects/DigitalClininc/app/src/main/res/layout/activity_main.xml" value="0.4041666666666667" />
+        <entry key="..\:/Users/VenkatMinchala/AndroidStudioProjects/DigitalClininc/app/src/main/res/layout/appointment_details_fragment.xml" value="0.4041666666666667" />
+        <entry key="..\:/Users/VenkatMinchala/AndroidStudioProjects/DigitalClininc/app/src/main/res/layout/coord_constr_test.xml" value="0.4" />
+        <entry key="..\:/Users/VenkatMinchala/AndroidStudioProjects/DigitalClininc/app/src/main/res/layout/digital_clinic_activity.xml" value="0.2265625" />
+        <entry key="..\:/Users/VenkatMinchala/AndroidStudioProjects/DigitalClininc/app/src/main/res/layout/event_fragment.xml" value="0.264" />
+        <entry key="..\:/Users/VenkatMinchala/AndroidStudioProjects/DigitalClininc/app/src/main/res/layout/fragment_blank.xml" value="0.4041666666666667" />
+        <entry key="..\:/Users/VenkatMinchala/AndroidStudioProjects/DigitalClininc/app/src/main/res/layout/fragment_blank_fragment_delete.xml" value="0.21354166666666666" />
+        <entry key="..\:/Users/VenkatMinchala/AndroidStudioProjects/DigitalClininc/app/src/main/res/layout/fragment_event.xml" value="0.4" />
+        <entry key="..\:/Users/VenkatMinchala/AndroidStudioProjects/DigitalClininc/app/src/main/res/layout/fragment_event_card_view.xml" value="0.4041666666666667" />
+        <entry key="..\:/Users/VenkatMinchala/AndroidStudioProjects/DigitalClininc/app/src/main/res/layout/fragment_event_list.xml" value="0.264" />
+        <entry key="..\:/Users/VenkatMinchala/AndroidStudioProjects/DigitalClininc/app/src/main/res/layout/fragment_events.xml" value="0.264" />
+        <entry key="..\:/Users/VenkatMinchala/AndroidStudioProjects/DigitalClininc/app/src/main/res/layout/fragment_events_copy.xml" value="0.1" />
+        <entry key="..\:/Users/VenkatMinchala/AndroidStudioProjects/DigitalClininc/app/src/main/res/layout/fragment_item.xml" value="0.4041666666666667" />
+        <entry key="..\:/Users/VenkatMinchala/AndroidStudioProjects/DigitalClininc/app/src/main/res/layout/fragment_item_list.xml" value="0.39010416666666664" />
+        <entry key="..\:/Users/VenkatMinchala/AndroidStudioProjects/DigitalClininc/app/src/main/res/layout/fragment_patient_event.xml" value="0.34057971014492755" />
+        <entry key="..\:/Users/VenkatMinchala/AndroidStudioProjects/DigitalClininc/app/src/main/res/layout/fragment_patient_event_list.xml" value="0.2265625" />
+        <entry key="..\:/Users/VenkatMinchala/AndroidStudioProjects/DigitalClininc/app/src/main/res/layout/fragment_patient_events.xml" value="0.4" />
+        <entry key="..\:/Users/VenkatMinchala/AndroidStudioProjects/DigitalClininc/app/src/main/res/layout/fragment_patient_events_list.xml" value="0.39010416666666664" />
+        <entry key="..\:/Users/VenkatMinchala/AndroidStudioProjects/DigitalClininc/app/src/main/res/layout/fragment_patient_home_view_pager.xml" value="0.264" />
+        <entry key="..\:/Users/VenkatMinchala/AndroidStudioProjects/DigitalClininc/app/src/main/res/layout/fragment_welcome.xml" value="0.4" />
+        <entry key="..\:/Users/VenkatMinchala/AndroidStudioProjects/DigitalClininc/app/src/main/res/layout/fragment_welcome2.xml" value="0.4041666666666667" />
+        <entry key="..\:/Users/VenkatMinchala/AndroidStudioProjects/DigitalClininc/app/src/main/res/layout/fragment_welcomeTest.xml" value="0.4" />
+        <entry key="..\:/Users/VenkatMinchala/AndroidStudioProjects/DigitalClininc/app/src/main/res/layout/fragment_welcome_const.xml" value="0.152" />
+        <entry key="..\:/Users/VenkatMinchala/AndroidStudioProjects/DigitalClininc/app/src/main/res/layout/fragment_welcome_constr.xml" value="0.4041666666666667" />
+        <entry key="..\:/Users/VenkatMinchala/AndroidStudioProjects/DigitalClininc/app/src/main/res/layout/fragment_welcome_only_linear.xml" value="0.4041666666666667" />
+        <entry key="..\:/Users/VenkatMinchala/AndroidStudioProjects/DigitalClininc/app/src/main/res/layout/fragment_welcome_test.xml" value="0.34057971014492755" />
+        <entry key="..\:/Users/VenkatMinchala/AndroidStudioProjects/DigitalClininc/app/src/main/res/layout/patient_home_view_pager_fragment.xml" value="0.1" />
+        <entry key="..\:/Users/VenkatMinchala/AndroidStudioProjects/DigitalClininc/app/src/main/res/layout/settings_fragment.xml" value="0.4041666666666667" />
+        <entry key="..\:/Users/VenkatMinchala/AndroidStudioProjects/DigitalClininc/app/src/main/res/layout/welcome_constr_fragment.xml" value="0.1" />
+        <entry key="..\:/Users/VenkatMinchala/AndroidStudioProjects/DigitalClininc/app/src/main/res/layout/welcome_fragment.xml" value="0.1" />
+        <entry key="..\:/Users/VenkatMinchala/AndroidStudioProjects/DigitalClininc/app/src/main/res/layout/welcome_linear_fragment.xml" value="0.21354166666666666" />
+        <entry key="..\:/Users/VenkatMinchala/AndroidStudioProjects/DigitalClininc/app/src/main/res/menu/bottom_nav_menu.xml" value="0.2265625" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
