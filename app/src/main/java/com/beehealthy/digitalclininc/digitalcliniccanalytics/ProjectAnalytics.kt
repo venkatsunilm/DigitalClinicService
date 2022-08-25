@@ -1,26 +1,26 @@
-package com.gm.hmi.hvac.gmanalytics
+package com.beehealthy.digitalclininc.digitalcliniccanalytics
 
 import android.content.Context
 import android.content.pm.ApplicationInfo
 import android.content.pm.PackageManager
 import android.os.Bundle
-import com.gm.hmi.hvac.gmanalytics.analytics.SingletonHolder
-import com.gm.hmi.hvac.gmanalytics.analytics.flurry.FlurryAnalytics
-import com.gm.hmi.hvac.gmanalytics.analytics.google.GoogleAnalytics
-import com.gm.hmi.hvac.gmanalytics.analytics.usagestats.UsageStatsAnalytics
-import com.gm.hmi.hvac.gmanalytics.dto.InfoDto
-import com.gm.hmi.hvac.gmanalytics.util.ExcelOperations
-import com.gm.hmi.hvac.gmanalytics.util.FileOperations
+import com.beehealthy.digitalclininc.digitalcliniccanalytics.analytics.SingletonHolder
+import com.beehealthy.digitalclininc.digitalcliniccanalytics.analytics.flurry.FlurryAnalytics
+import com.beehealthy.digitalclininc.digitalcliniccanalytics.analytics.google.GoogleAnalytics
+import com.beehealthy.digitalclininc.digitalcliniccanalytics.analytics.usagestats.UsageStatsAnalytics
+import com.beehealthy.digitalclininc.digitalcliniccanalytics.dto.InfoDto
+import com.beehealthy.digitalclininc.digitalcliniccanalytics.util.ExcelOperations
+import com.beehealthy.digitalclininc.digitalcliniccanalytics.util.FileOperations
 import com.google.firebase.analytics.FirebaseAnalytics
 
 /**
- * Singleton class for GM Analytics
+ * Singleton class for Analytics
  * The idea of this class to capture user engagement and event behaviour analytics via Custom,
  * Google and Flurry.
  * Custom: Stores the data in an excel format and retrieve the same manually from the external
  * storage.
  */
-class GMAnalytics private constructor(val context: Context) {
+class ProjectAnalytics private constructor(val context: Context) {
 
     //TODO: See if we can get the App name and context dynamically
     private var googleAnalytics: GoogleAnalytics
@@ -48,7 +48,7 @@ class GMAnalytics private constructor(val context: Context) {
 
     }
 
-    companion object : SingletonHolder<GMAnalytics, Context>(::GMAnalytics)
+    companion object : SingletonHolder<ProjectAnalytics, Context>(::ProjectAnalytics)
 
     fun getGoogleInstance(): GoogleAnalytics {
         return googleAnalytics
@@ -59,7 +59,7 @@ class GMAnalytics private constructor(val context: Context) {
     }
 
     /**
-     * Log any custom event which has to be registered with GM Analytics.
+     * Log any custom event which has to be registered with Analytics.
      * @param screenName
      * @param eventName
      */

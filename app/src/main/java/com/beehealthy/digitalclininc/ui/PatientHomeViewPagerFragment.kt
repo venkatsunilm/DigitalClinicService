@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.beehealthy.digitalclininc.R
 import com.beehealthy.digitalclininc.adapter.*
 import com.beehealthy.digitalclininc.databinding.PatientHomeViewPagerFragmentBinding
+import com.beehealthy.digitalclininc.digitalcliniccanalytics.ProjectAnalytics
 import com.google.android.material.tabs.TabLayoutMediator
 import dagger.hilt.android.AndroidEntryPoint
 import java.lang.IndexOutOfBoundsException
@@ -21,6 +22,14 @@ class PatientHomeViewPagerFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+
+        object {}.javaClass.enclosingMethod?.name?.let {
+            activity?.let { context ->
+                ProjectAnalytics.getInstance(context)
+                    .sendEvent(object {}.javaClass.enclosingClass.simpleName, it)
+            }
+        }
+
         // get the binding context from the auto generated FragmentPatientHomeViewPagerBinding
         val binding = PatientHomeViewPagerFragmentBinding.inflate(inflater, container, false)
         val tabLayout = binding.homeTabs

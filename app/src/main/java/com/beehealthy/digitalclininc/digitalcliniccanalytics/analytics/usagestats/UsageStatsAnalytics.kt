@@ -1,4 +1,4 @@
-package com.gm.hmi.hvac.gmanalytics.analytics.usagestats
+package com.beehealthy.digitalclininc.digitalcliniccanalytics.analytics.usagestats
 
 import android.app.AppOpsManager
 import android.app.usage.UsageEvents

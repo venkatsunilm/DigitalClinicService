@@ -1,4 +1,4 @@
-package com.gm.hmi.hvac.gmanalytics.analytics.flurry
+package com.beehealthy.digitalclininc.digitalcliniccanalytics.analytics.flurry
 
 import android.content.Context
 import androidx.annotation.NonNull

@@ -1,13 +1,16 @@
-package com.gm.hmi.hvac.gmanalytics.util
+package com.beehealthy.digitalclininc.digitalcliniccanalytics.util
 
 import android.os.Environment
 import android.util.Log
-import com.gm.hmi.hvac.gmanalytics.dto.InfoDto
+import com.beehealthy.digitalclininc.digitalcliniccanalytics.dto.InfoDto
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import java.io.File
 
-class FileOperations(private val screenInfoMap: Map<String, InfoDto.ScreenInfo>, private val fileName: String = "GMAnalytics.json") {
+class FileOperations(
+    private val screenInfoMap: Map<String, InfoDto.ScreenInfo>,
+    private val fileName: String = "AnalyticsProject.json"
+) {
 
     // TODO: Use Fileprovider to secure sharing of files associated with an app by creating a content:// Uri
     private var fileObject: File
@@ -54,7 +57,10 @@ class FileOperations(private val screenInfoMap: Map<String, InfoDto.ScreenInfo>,
                 val jsonFromMap = fileObject.readText()
 
                 // TODO: remove: Only for testing... convert this to Hash Map
-                val screenInfoMap: Map<String, InfoDto.ScreenInfo> = gson.fromJson(jsonFromMap, object : TypeToken<Map<String, InfoDto.ScreenInfo>>() {}.type)
+                val screenInfoMap: Map<String, InfoDto.ScreenInfo> = gson.fromJson(
+                    jsonFromMap,
+                    object : TypeToken<Map<String, InfoDto.ScreenInfo>>() {}.type
+                )
                 for ((key, value) in screenInfoMap) {
                     Log.d("Retrieved data", "$key = $value")
                 }

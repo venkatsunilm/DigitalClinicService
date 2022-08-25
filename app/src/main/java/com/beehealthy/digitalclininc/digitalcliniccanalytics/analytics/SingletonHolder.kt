@@ -1,4 +1,4 @@
-package com.gm.hmi.hvac.gmanalytics.analytics
+package com.beehealthy.digitalclininc.digitalcliniccanalytics.analytics
 
 /**
  * Helps to pass a parameter in the constructor and to maintain singleton features intact

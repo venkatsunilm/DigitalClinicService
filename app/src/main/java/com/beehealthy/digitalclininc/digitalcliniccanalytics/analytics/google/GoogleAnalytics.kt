@@ -1,8 +1,9 @@
-package com.gm.hmi.hvac.gmanalytics.analytics.google
+package com.beehealthy.digitalclininc.digitalcliniccanalytics.analytics.google
 
 import android.app.Activity
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.google.firebase.database.FirebaseDatabase
 
@@ -11,6 +12,8 @@ import com.google.firebase.database.FirebaseDatabase
  * @param context : Pass an Activity context
  */
 class GoogleAnalytics(private val context: Context) {
+
+    val TAG = "venkat"
 
     private var mFirebaseAnalytics: FirebaseAnalytics = FirebaseAnalytics.getInstance(context)
 
@@ -24,6 +27,7 @@ class GoogleAnalytics(private val context: Context) {
      * @param params
      */
     fun logEvent(name: String, params: Bundle) {
+        Log.d(TAG, "name: $name, params: $params")
         mFirebaseAnalytics.logEvent(name, params)
     }
 

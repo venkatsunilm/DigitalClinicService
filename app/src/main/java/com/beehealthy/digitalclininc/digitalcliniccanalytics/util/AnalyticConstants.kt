@@ -1,7 +1,7 @@
-package com.gm.hmi.hvac.gmanalytics.util
+package com.beehealthy.digitalclininc.digitalcliniccanalytics.util
 
 /**
- * Constants used only for GM Analytics
+ * Constants used only for Analytics
  */
 class AnalyticConstants {
 

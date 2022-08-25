@@ -82,9 +82,15 @@ dependencies {
     // GSON by google
     implementation 'com.google.code.gson:gson:2.9.0'
 
-    // Firebase SDK for Google Analytics
-    implementation 'com.google.firebase:firebase-analytics:21.1.0'
-    implementation 'com.google.firebase:firebase-database:20.0.5'
+    // import from Firebase BoM
+    implementation platform('com.google.firebase:firebase-bom:30.3.2')
+    // TODO: Add the dependencies for Firebase products you want to use
+    // When using the BoM, don't specify versions in Firebase dependencies
+    implementation 'com.google.firebase:firebase-analytics-ktx'
+
+//    // Firebase SDK for Google Analytics
+//    implementation 'com.google.firebase:firebase-analytics:21.1.0'
+    implementation 'com.google.firebase:firebase-database'
 
     // Yahoo Flurry Analytics
     implementation 'com.flurry.android:analytics:12.0.1@aar'

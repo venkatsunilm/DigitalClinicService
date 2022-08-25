@@ -1,4 +1,4 @@
-package com.gm.hmi.hvac.gmanalytics.dto
+package com.beehealthy.digitalclininc.digitalcliniccanalytics.dto
 
 class InfoDto {
 

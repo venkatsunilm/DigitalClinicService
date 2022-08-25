@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "460248759587",
+    "project_id": "digitalclinic-b44cb",
+    "storage_bucket": "digitalclinic-b44cb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:460248759587:android:67ae53dddbfee8ef1f2096",
+        "android_client_info": {
+          "package_name": "com.beehealthy.digitalclininc"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "460248759587-j7bj08583nnfdsvg6aig68qoojmlqoch.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDTBJws13CRSxsuQGDKRId6-dUXC3GGdSs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "460248759587-j7bj08583nnfdsvg6aig68qoojmlqoch.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

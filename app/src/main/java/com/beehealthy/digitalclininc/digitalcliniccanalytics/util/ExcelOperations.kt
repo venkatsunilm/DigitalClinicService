@@ -1,7 +1,7 @@
-package com.gm.hmi.hvac.gmanalytics.util
+package com.beehealthy.digitalclininc.digitalcliniccanalytics.util
 
 import android.os.Environment
-import com.gm.hmi.hvac.gmanalytics.dto.InfoDto
+import com.beehealthy.digitalclininc.digitalcliniccanalytics.dto.InfoDto
 import org.apache.poi.hssf.usermodel.HSSFSheet
 import org.apache.poi.hssf.usermodel.HSSFWorkbook
 import org.apache.poi.ss.usermodel.IndexedColors
@@ -15,12 +15,13 @@ import java.io.IOException
  *
  */
 internal class ExcelOperations(private val screenInfoMap: Map<String, InfoDto.ScreenInfo>,
-                               sheetName: String = "GM",
-                               workbookFile: String = "GMAnalytics.xls") {
+                               sheetName: String = "Analytics",
+                               workbookFile: String = "AnalyticsProject.xls") {
 
     private lateinit var workbook: HSSFWorkbook
     private lateinit var sheet: HSSFSheet
-    private val headers = arrayOf<String>(AnalyticConstants.H_APPNAME,
+    private val headers = arrayOf<String>(
+        AnalyticConstants.H_APPNAME,
             AnalyticConstants.H_APPDURATION, AnalyticConstants.H_SCREENNAME,
             AnalyticConstants.H_SCREENCOUNT, AnalyticConstants.H_EVENTNAME,
             AnalyticConstants.H_EVENTCOUNT)
