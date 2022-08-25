@@ -2,13 +2,8 @@ package com.beehealthy.digitalclininc.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
-import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.RecyclerView
 import com.beehealthy.digitalclinic.apiservice.models.PatientEvent
-import com.beehealthy.digitalclininc.R
 import com.beehealthy.digitalclininc.databinding.EventFragmentBinding
 import com.beehealthy.digitalclininc.viewmodels.EventViewModel
 

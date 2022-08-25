@@ -6,13 +6,13 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
 import com.beehealthy.digitalclinic.apiservice.models.PatientEvent
 import com.beehealthy.digitalclininc.adapter.EventAdapter
+import com.beehealthy.digitalclininc.constants.ApplicationConstants
 import com.beehealthy.digitalclininc.databinding.EventListFragmentBinding
 import com.beehealthy.digitalclininc.viewmodels.EventListViewModel
 import com.beehealthy.digitalclininc.viewmodels.EventViewModel
+import com.beehealthy.digitalclininc.digitalcliniccanalytics.ProjectAnalytics
 import dagger.hilt.android.AndroidEntryPoint
 import io.reactivex.rxjava3.core.Observable
 
@@ -21,10 +21,12 @@ import io.reactivex.rxjava3.core.Observable
 class EventListFragment : Fragment() {
 
     private lateinit var adapter: EventAdapter
+
     // will initialize this as necessary
     private lateinit var bindingContext: EventListFragmentBinding
 
-     private val eventListViewModel: EventListViewModel by viewModels()
+    private val eventViewModel: EventViewModel by viewModels()
+    private val eventListViewModel: EventListViewModel by viewModels()
     // other way to get a view model
     // private lateinit var eventListViewModel: EventListViewModel
     // or lazy initialization
@@ -32,13 +34,17 @@ class EventListFragment : Fragment() {
 //        ViewModelProvider(this)[EventListViewModel::class.java]
 //    }
 
-    private val eventViewModel: EventViewModel by viewModels()
-
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+
+        object {}.javaClass.enclosingMethod?.name?.let {
+            ProjectAnalytics.getInstance(ApplicationConstants.applicationContext)
+                .sendEvent(object {}.javaClass.enclosingClass.simpleName, it)
+        }
+
         bindingContext = EventListFragmentBinding.inflate(inflater, container, false)
         // getting the view model with viewModelProvider
         // eventListViewModel = ViewModelProvider(this)[EventListViewModel::class.java]
@@ -54,6 +60,13 @@ class EventListFragment : Fragment() {
         bindingContext.eventList.adapter = adapter
 
         eventListViewModel.getEvents().observe(viewLifecycleOwner) {
+
+            ProjectAnalytics.getInstance(ApplicationConstants.applicationContext)
+                .sendEvent(
+                    object {}.javaClass.enclosingClass.simpleName,
+                    "Data change triggered"
+                )
+
             adapter.submitList(it)
         }
 
