@@ -15,7 +15,6 @@ class DigitalClinicApplication : Application() {
                 .sendEvent(object {}.javaClass.enclosingClass.simpleName, it)
         }
 
-        ApplicationConstants.applicationContext = this
         super.onCreate()
     }
 }
