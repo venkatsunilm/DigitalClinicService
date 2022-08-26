@@ -27,8 +27,10 @@ class WelcomeFragment : Fragment() {
 
         // sending events to google analytics
         object {}.javaClass.enclosingMethod?.name?.let {
-            ProjectAnalytics.getInstance(ApplicationConstants.applicationContext)
-                .sendEvent(object {}.javaClass.enclosingClass.simpleName, it)
+            context?.let { context ->
+                ProjectAnalytics.getInstance(context.applicationContext)
+                    .sendEvent(object {}.javaClass.enclosingClass.simpleName, it)
+            }
         }
 
 //        SportsSample()
@@ -42,8 +44,10 @@ class WelcomeFragment : Fragment() {
 
         // sending events to google analytics
         object {}.javaClass.enclosingMethod?.name?.let {
-            ProjectAnalytics.getInstance(ApplicationConstants.applicationContext)
-                .sendEvent(object {}.javaClass.enclosingClass.simpleName, it)
+            activity?.let { context ->
+                ProjectAnalytics.getInstance(context.applicationContext)
+                    .sendEvent(object {}.javaClass.enclosingClass.simpleName, it)
+            }
         }
 
         // few action animations while moving to other destinations
@@ -60,11 +64,13 @@ class WelcomeFragment : Fragment() {
         bindingContext.secureSignInButton.setOnClickListener {
 
             // Sending  screen and button view name to analytics to listen on click
-            ProjectAnalytics.getInstance(ApplicationConstants.applicationContext)
-                .sendEvent(
-                    object {}.javaClass.enclosingClass.simpleName,
-                    bindingContext.secureSignInButton.text.toString()
-                )
+            context?.let { context ->
+                ProjectAnalytics.getInstance(context.applicationContext)
+                    .sendEvent(
+                        object {}.javaClass.enclosingClass.simpleName,
+                        bindingContext.secureSignInButton.text.toString()
+                    )
+            }
 
             findNavController().navigate(R.id.home_dest, null, options)
             // TODO: The alternative way to call the destination using action testing, under implementation

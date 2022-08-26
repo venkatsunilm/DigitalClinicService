@@ -77,6 +77,7 @@ class EventsService @Inject constructor() : IEventsReq {
                     },
                     onError = {
                         it.printStackTrace()
+                        // post back the failure response and display an alert to user
                     },
                     onComplete = {
                     }
@@ -89,8 +90,21 @@ class EventsService @Inject constructor() : IEventsReq {
     }
 
     override fun getPrescriptions() {
+
     }
 
     override fun getVaccinations() {
     }
+
+    companion object {
+        @Volatile
+        private var instance: EventsService? = null
+
+        fun getInstance() =
+            instance ?: synchronized(this) {
+                instance ?: EventsService().also { instance = it }
+            }
+    }
+
+
 }

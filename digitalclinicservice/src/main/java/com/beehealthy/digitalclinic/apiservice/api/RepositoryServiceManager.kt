@@ -8,7 +8,6 @@ import javax.inject.Singleton
 
 // TODO: Instead of injecting all the services in future here
 //  Create a single contract for all services
-@Singleton
 class RepositoryServiceManager @Inject constructor(
     private val eventsService: EventsService
 ) : IManager {
