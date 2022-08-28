@@ -66,7 +66,7 @@ class WelcomeFragment : Fragment() {
                     bindingContext.secureSignInButton.text.toString()
                 )
 
-            findNavController().navigate(R.id.home_dest, null, options)
+            findNavController().navigate(R.id.login_dest, null, options)
             // TODO: The alternative way to call the destination using action testing, under implementation
             // Navigation.createNavigateOnClickListener(R.id.action_welcome_dest_to_home_dest, null)
         }

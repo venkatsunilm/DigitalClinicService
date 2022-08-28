@@ -1,8 +1,14 @@
 package com.beehealthy.digitalclinic.apiservice.api
 
 import androidx.lifecycle.LiveData
-import com.beehealthy.digitalclinic.apiservice.api.requests.IManager
+import androidx.lifecycle.MutableLiveData
+import com.beehealthy.digitalclinic.apiservice.api.contracts.requests.IRepositoryServiceManager
+import com.beehealthy.digitalclinic.apiservice.api.repository.PatientDetailsRepository
+import com.beehealthy.digitalclinic.apiservice.api.repository.PatientRepository
+import com.beehealthy.digitalclinic.apiservice.models.DigitalClinic
 import com.beehealthy.digitalclinic.apiservice.models.PatientEvent
+import com.beehealthy.digitalclinic.apiservice.models.PatientPrescription
+import com.beehealthy.digitalclinic.apiservice.models.ResponseObject
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -10,32 +16,44 @@ import javax.inject.Singleton
 //  Create a single contract for all services
 @Singleton
 class RepositoryServiceManager @Inject constructor(
-    private val eventsService: EventsService
-) : IManager {
+    private val patientRepository: PatientRepository,
+    private val patientDetailsRepository: PatientDetailsRepository
+) : IRepositoryServiceManager {
 
     override fun initialize() {
     }
 
-    override fun getEvents(): LiveData<List<PatientEvent>> {
-        return eventsService.getEvents()
+    override fun login(
+        username: String,
+        password: String
+    ): MutableLiveData<ResponseObject<String>> {
+        return patientRepository.login(username, password)
     }
 
-    override fun getPrescriptions() {
+    override fun getEvents(): LiveData<ResponseObject<List<PatientEvent>>> {
+        return patientDetailsRepository.getEvents()
     }
 
-    override fun getVaccinations() {
+    override fun getPrescriptions(): LiveData<ResponseObject<List<PatientPrescription>>> {
+       return patientDetailsRepository.getPrescriptions()
     }
 
-    // TODO: This singleton instance might be required only if we want to create a manual ViewModelFactory
-    //  as centralized and manual DI. Remove this in future if we depend on the Hilt DI which is experimental
+    override fun getDigitalClinicInfo(): LiveData<ResponseObject<DigitalClinic>> {
+        return patientDetailsRepository.getDigitalClinicInfo()
+    }
+
     companion object {
         @Volatile
         private var instance: RepositoryServiceManager? = null
 
-        fun getInstance(eventsService: EventsService) =
-            instance ?: synchronized(this) {
-                instance ?: RepositoryServiceManager(eventsService).also { instance = it }
-            }
+        fun getInstance(
+            patientRepository: PatientRepository,
+            patientDetailsRepository: PatientDetailsRepository
+        ) = instance ?: synchronized(this) {
+            instance ?: RepositoryServiceManager(
+                PatientRepository.getInstance(),
+                patientDetailsRepository
+            ).also { instance = it }
+        }
     }
-
 }

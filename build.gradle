@@ -9,6 +9,9 @@ buildscript {
     repositories {
         google() // google maven repository
         mavenCentral() // Maven central repository
+        flatDir {
+            dirs 'libs'
+        }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:7.0.4'
@@ -41,4 +44,5 @@ spotless {
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+
 
