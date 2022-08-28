@@ -3,7 +3,6 @@ package com.beehealthy.digitalclinic.apiservice.api.repository
 import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.beehealthy.digitalclinic.apiservice.BuildConfig
 import com.beehealthy.digitalclinic.apiservice.api.contracts.requests.IPatientDetailsRepository
 import com.beehealthy.digitalclinic.apiservice.api.contracts.requests.IPatientDetailsService
 import com.beehealthy.digitalclinic.apiservice.helper.RetrofitClient
@@ -13,9 +12,6 @@ import com.beehealthy.digitalclinic.apiservice.models.PatientPrescription
 import com.beehealthy.digitalclinic.apiservice.models.ResponseObject
 import com.beehealthy.digitalclinic.apiservice.utils.AppPreference
 import dagger.hilt.android.qualifiers.ApplicationContext
-import kotlinx.coroutines.DelicateCoroutinesApi
-import okhttp3.OkHttpClient
-import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -26,30 +22,7 @@ import javax.inject.Singleton
 class PatientDetailsRepository @Inject constructor(@ApplicationContext val context: Context) :
     IPatientDetailsRepository {
 
-    // TODO: example url, not working now, replace when the service API is availble
-    private val eventsUrl = "https://digitalservice.com/patientUUID/events"
-    private val jsonTag = "application/json"
-
     private var patientDetailsService: IPatientDetailsService = RetrofitClient.getInstance()
-        .client(
-            OkHttpClient.Builder()
-                .addInterceptor { chain ->
-                    chain.proceed((chain.request().newBuilder().also {
-                        it.addHeader(
-                            "Authorization",
-                            "Bearer $appPreference.getString(AppPreference.Keys.TOKEN)"
-                        )
-                    }.build()))
-                }.also { client ->
-                    if (BuildConfig.DEBUG) {
-                        val logger = HttpLoggingInterceptor().apply {
-                            level = HttpLoggingInterceptor.Level.BODY
-                        }
-                        client.addInterceptor(logger)
-                    }
-                }
-                .build())
-        .build()
         .create(IPatientDetailsService::class.java)
 
     private var appPreference: AppPreference = AppPreference.getInstance(context)
@@ -57,7 +30,7 @@ class PatientDetailsRepository @Inject constructor(@ApplicationContext val conte
     override fun getEvents(): LiveData<ResponseObject<List<PatientEvent>>> {
         val responseData: MutableLiveData<ResponseObject<List<PatientEvent>>> = MutableLiveData()
         val token = appPreference.getString(AppPreference.Keys.TOKEN)
-        patientDetailsService.getEvents(jsonTag, token)
+        patientDetailsService.getEvents(token)
             .enqueue(object : Callback<List<PatientEvent>> {
 
                 override fun onFailure(call: Call<List<PatientEvent>>, t: Throwable) {
@@ -94,7 +67,7 @@ class PatientDetailsRepository @Inject constructor(@ApplicationContext val conte
         val responseData: MutableLiveData<ResponseObject<List<PatientPrescription>>> =
             MutableLiveData()
         val token = appPreference.getString(AppPreference.Keys.TOKEN)
-        patientDetailsService.getPrescriptions(jsonTag, token)
+        patientDetailsService.getPrescriptions(token)
             .enqueue(object : Callback<List<PatientPrescription>> {
 
                 override fun onFailure(call: Call<List<PatientPrescription>>, t: Throwable) {
@@ -130,7 +103,7 @@ class PatientDetailsRepository @Inject constructor(@ApplicationContext val conte
     override fun getDigitalClinicInfo(): LiveData<ResponseObject<DigitalClinic>> {
         val responseData: MutableLiveData<ResponseObject<DigitalClinic>> = MutableLiveData()
         val token = appPreference.getString(AppPreference.Keys.TOKEN)
-        patientDetailsService.getDigitalClinic(jsonTag, token)
+        patientDetailsService.getDigitalClinic(token)
             .enqueue(object : Callback<DigitalClinic> {
 
                 override fun onFailure(call: Call<DigitalClinic>, t: Throwable) {

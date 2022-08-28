@@ -10,7 +10,6 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.navOptions
 import com.beehealthy.digitalclininc.R
-import com.beehealthy.digitalclininc.constants.ApplicationConstants
 import com.beehealthy.digitalclininc.databinding.LoginNewFragmentBinding
 import com.beehealthy.digitalclininc.digitalcliniccanalytics.ProjectAnalytics
 import com.beehealthy.digitalclininc.helper.ApiResponseHelper
@@ -32,8 +31,10 @@ class LoginFragment : Fragment() {
     ): View {
 
         object {}.javaClass.enclosingMethod?.name?.let {
-            ProjectAnalytics.getInstance(ApplicationConstants.applicationContext)
-                .sendEvent(object {}.javaClass.enclosingClass.simpleName, it)
+            this.activity?.let { it1 ->
+                ProjectAnalytics.getInstance(it1.applicationContext)
+                    .sendEvent(object {}.javaClass.enclosingClass.simpleName, it)
+            }
         }
 
         _binding = LoginNewFragmentBinding.inflate(inflater, container, false)

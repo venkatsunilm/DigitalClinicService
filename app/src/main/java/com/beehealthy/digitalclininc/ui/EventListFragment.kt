@@ -6,21 +6,17 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.lifecycleScope
 import com.beehealthy.digitalclinic.apiservice.api.mockdata.EventsMockList
 import com.beehealthy.digitalclinic.apiservice.models.PatientEvent
 import com.beehealthy.digitalclininc.adapter.EventAdapter
-import com.beehealthy.digitalclininc.constants.ApplicationConstants
 import com.beehealthy.digitalclininc.databinding.EventListFragmentBinding
-import com.beehealthy.digitalclininc.viewmodels.EventListViewModel
-import com.beehealthy.digitalclininc.viewmodels.EventViewModel
 import com.beehealthy.digitalclininc.digitalcliniccanalytics.ProjectAnalytics
 import com.beehealthy.digitalclininc.helper.ApiResponseHelper
+import com.beehealthy.digitalclininc.viewmodels.EventListViewModel
+import com.beehealthy.digitalclininc.viewmodels.EventViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import io.reactivex.rxjava3.core.Observable
-import kotlinx.coroutines.launch
 
-// generated a hilt component
 @AndroidEntryPoint
 class EventListFragment : Fragment() {
     private lateinit var adapter: EventAdapter
@@ -35,8 +31,10 @@ class EventListFragment : Fragment() {
     ): View {
 
         object {}.javaClass.enclosingMethod?.name?.let {
-            ProjectAnalytics.getInstance(ApplicationConstants.applicationContext)
-                .sendEvent(object {}.javaClass.enclosingClass.simpleName, it)
+            this.activity?.let { it1 ->
+                ProjectAnalytics.getInstance(it1.applicationContext)
+                    .sendEvent(object {}.javaClass.enclosingClass.simpleName, it)
+            }
         }
 
         bindingContext = EventListFragmentBinding.inflate(inflater, container, false)
@@ -51,7 +49,6 @@ class EventListFragment : Fragment() {
                     ) { items: List<PatientEvent>? ->
                         if (items != null) {
                             adapter = EventAdapter(items, eventViewModel)
-//                            adapter.submitList(items)
                         }
                     }
                 }

@@ -15,10 +15,9 @@ import retrofit2.Callback
 import retrofit2.Response
 import javax.inject.Inject
 
-//@Singleton
 class PatientRepository @Inject constructor() : IUserRepository {
     private var userService: IPatientService =
-        RetrofitClient.getInstance().build().create(IPatientService::class.java)
+        RetrofitClient.getInstance().create(IPatientService::class.java)
 
     override fun login(
         username: String,

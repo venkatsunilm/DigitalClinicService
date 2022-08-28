@@ -5,11 +5,9 @@
 package com.beehealthy.digitalclininc.helper
 
 import android.content.Context
-import android.content.DialogInterface
 import androidx.appcompat.app.AlertDialog
 import com.beehealthy.digitalclinic.apiservice.models.ResponseObject
 import com.beehealthy.digitalclininc.R
-import com.beehealthy.digitalclininc.ui.LoginFragment
 import com.beehealthy.digitalclininc.util.Constant.RETRY_STATUS_CODES
 
 class ApiResponseHelper {

@@ -9,7 +9,6 @@ import androidx.fragment.app.viewModels
 import com.beehealthy.digitalclinic.apiservice.api.mockdata.EventsMockList
 import com.beehealthy.digitalclinic.apiservice.models.PatientPrescription
 import com.beehealthy.digitalclininc.adapter.PrescriptionAdapter
-import com.beehealthy.digitalclininc.constants.ApplicationConstants
 import com.beehealthy.digitalclininc.databinding.PrescriptionListFragmentBinding
 import com.beehealthy.digitalclininc.digitalcliniccanalytics.ProjectAnalytics
 import com.beehealthy.digitalclininc.helper.ApiResponseHelper
@@ -33,8 +32,10 @@ class PrescriptionListFragment: Fragment(){
     ): View {
 
         object {}.javaClass.enclosingMethod?.name?.let {
-            ProjectAnalytics.getInstance(ApplicationConstants.applicationContext)
-                .sendEvent(object {}.javaClass.enclosingClass.simpleName, it)
+            this.activity?.let { it1 ->
+                ProjectAnalytics.getInstance(it1.applicationContext)
+                    .sendEvent(object {}.javaClass.enclosingClass.simpleName, it)
+            }
         }
 
         bindingContext = PrescriptionListFragmentBinding.inflate(inflater, container, false)

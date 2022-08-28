@@ -26,7 +26,7 @@
         android:id="@+id/login_dest"
         android:name="com.beehealthy.digitalclininc.ui.LoginFragment"
         android:label="fragment_login"
-        tools:layout="@layout/login_fragment" >
+        tools:layout="@layout/login_new_fragment" >
         <action
             android:id="@+id/action_loginFragment_to_home_dest"
             app:destination="@id/home_dest" />

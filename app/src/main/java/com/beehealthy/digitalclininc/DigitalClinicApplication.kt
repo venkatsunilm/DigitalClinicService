@@ -1,7 +1,6 @@
 package com.beehealthy.digitalclininc
 
 import android.app.Application
-import com.beehealthy.digitalclininc.constants.ApplicationConstants
 import com.beehealthy.digitalclininc.digitalcliniccanalytics.ProjectAnalytics
 import dagger.hilt.android.HiltAndroidApp
 
@@ -15,7 +14,7 @@ class DigitalClinicApplication : Application() {
                 .sendEvent(object {}.javaClass.enclosingClass.simpleName, it)
         }
 
-        ApplicationConstants.applicationContext = this
+//        ApplicationConstants.applicationContext = this
         super.onCreate()
     }
 }
