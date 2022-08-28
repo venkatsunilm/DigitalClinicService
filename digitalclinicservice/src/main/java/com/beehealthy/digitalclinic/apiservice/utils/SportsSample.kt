@@ -10,10 +10,10 @@ class SportsSample {
     val TAG = "Venkat"
 
     enum class Sport { HIKE, RUN, TOURING_BICYCLE, E_TOURING_BICYCLE }
-
     data class Summary(val sport: Sport, val distance: Int)
 
     init {
+        // Write kotlin code to print the top sport by distance excluding eBikes.
         val sportStats = listOf(
             Summary(Sport.HIKE, 92),
             Summary(Sport.RUN, 77),
@@ -22,11 +22,6 @@ class SportsSample {
 
         )
 
-        sampleFunction()
-
-        // Write kotlin code to print the top sport by distance excluding eBikes.
-
-        //
         val result = sportStats
             .filter { it.sport != Sport.E_TOURING_BICYCLE }
             .sortedWith(compareBy { it.distance }).last()
@@ -36,6 +31,8 @@ class SportsSample {
             .filter { it.sport != Sport.E_TOURING_BICYCLE }
             .sorted(compareBy { it.distance }).lastElement()
             .subscribe({ println("onNext: $it") }, {}, { print("action:onComplete") })
+
+//        sampleFunction()
 
     }
 

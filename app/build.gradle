@@ -70,9 +70,9 @@ dependencies {
     implementation "com.google.dagger:hilt-android:2.41"
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.5.1'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1'
+    implementation 'androidx.annotation:annotation:1.4.0'
     kapt "com.google.dagger:hilt-android-compiler:2.41"
 
-    // digitalclinicservice module access to interact
     implementation project(path: ':digitalclinicservice')
 
     testImplementation 'junit:junit:4.13.2'
@@ -99,4 +99,6 @@ dependencies {
     implementation "org.apache.poi:poi:4.1.0"	     // For `.xls` files
     implementation "org.apache.poi:poi-ooxml:4.1.0"	 // For `.xlsx` files
 
+//    implementation "com.venkat.analyticslibrary:GoogelFlurryAndCustomAnalytics:1.0@aar"
+//    implementation(name:'com.venkat.analyticslibrary', ext:'aar')
 }
