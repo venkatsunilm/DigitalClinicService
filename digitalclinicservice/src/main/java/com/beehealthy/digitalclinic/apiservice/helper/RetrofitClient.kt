@@ -4,28 +4,27 @@
 
 package com.beehealthy.digitalclinic.apiservice.helper
 
+import com.google.gson.Gson
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import com.google.gson.GsonBuilder
 
 class RetrofitClient {
     companion object {
-        private var retrofitBuilder: Retrofit.Builder? = null
-
-        // TODO: Create and provide a base URL for Digital clinic
-        private const val BASE_URL = "https://quotable.io/"
-
+        private var retrofit: Retrofit? = null
+        private const val BASE_URL = "https://example/api/"
         var gson = GsonBuilder()
             .setLenient()
             .create()
 
-        fun getInstance(): Retrofit.Builder {
-            if (retrofitBuilder == null) {
-                retrofitBuilder = Retrofit.Builder()
+        fun getInstance(): Retrofit {
+            if (retrofit == null) {
+                retrofit = Retrofit.Builder()
                     .baseUrl(BASE_URL)
                     .addConverterFactory(GsonConverterFactory.create(gson))
+                    .build()
             }
-            return retrofitBuilder!!
+            return retrofit!!
         }
     }
 }

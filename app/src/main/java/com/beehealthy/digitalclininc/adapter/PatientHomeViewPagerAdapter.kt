@@ -4,9 +4,7 @@ import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.beehealthy.digitalclininc.ui.EventListFragment
 import com.beehealthy.digitalclininc.ui.PrescriptionListFragment
-import com.beehealthy.digitalclininc.ui.PrescriptionsFragment
 import com.beehealthy.digitalclininc.ui.VaccinationsFragment
-import java.lang.IndexOutOfBoundsException
 
 const val EVENTS_PAGE = 0
 const val PRESCRIPTION_PAGE = 1

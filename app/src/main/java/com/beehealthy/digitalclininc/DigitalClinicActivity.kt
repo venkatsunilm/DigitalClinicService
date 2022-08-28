@@ -10,7 +10,7 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class DigitalClinicActivity : AppCompatActivity() {
 
-    val TAG = "venkat"
+    val tag = "venkat"
     override fun onCreate(savedInstanceState: Bundle?) {
 
         object {}.javaClass.enclosingMethod?.name?.let {
