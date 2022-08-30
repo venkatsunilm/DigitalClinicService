@@ -40,7 +40,7 @@
                         style="@style/Widget.MaterialComponents.Toolbar.Primary"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@color/dark_green"
+                        android:background="@color/dark_special"
                         app:contentInsetStart="0dp"
                         app:layout_collapseMode="parallax">
 
@@ -65,7 +65,7 @@
                                 android:id="@+id/header_title"
                                 android:layout_width="wrap_content"
                                 android:layout_height="match_parent"
-                                android:text="@string/mehilainen"
+                                android:text="@string/digital_clinic"
                                 android:textAppearance="?attr/textAppearanceHeadline6"
                                 android:textColor="@color/white"
                                 app:layout_constraintBottom_toBottomOf="parent"

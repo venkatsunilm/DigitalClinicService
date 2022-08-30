@@ -6,7 +6,7 @@
 
         <variable
             name="viewmodel"
-            type="com.beehealthy.digitalclininc.viewmodels.EventViewModel" />
+            type="com.venkat.digitalclininc.viewmodels.EventViewModel" />
     </data>
 
     <com.google.android.material.card.MaterialCardView
@@ -66,7 +66,7 @@
                     android:layout_width="60dp"
                     android:layout_height="60dp"
                     android:adjustViewBounds="true"
-                    android:contentDescription="@string/welcome_screen_mehilainen_phone_image"
+                    android:contentDescription="@string/welcome_screen_text"
                     android:padding="15dp"
                     android:scaleType="fitCenter"
                     android:src="@drawable/ic_detail_share" />
@@ -80,7 +80,7 @@
                     android:text="@{viewmodel.referralType}"
                     android:textAlignment="textStart"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
-                    android:textColor="@color/dark_green" />
+                    android:textColor="@color/dark_special" />
 
             </LinearLayout>
 
@@ -130,7 +130,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="10dp"
-                android:backgroundTint="@color/dark_green"
+                android:backgroundTint="@color/dark_special"
                 android:paddingVertical="15dp"
                 android:layout_marginHorizontal="10dp"
                 android:text="Book an appointment"

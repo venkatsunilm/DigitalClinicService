@@ -9,7 +9,7 @@
 
     <fragment
         android:id="@+id/welcome_dest"
-        android:name="com.beehealthy.digitalclininc.ui.WelcomeFragment"
+        android:name="com.venkat.digitalclininc.ui.WelcomeFragment"
         android:label="welcome page"
         tools:layout="@layout/welcome_constr_fragment">
         <action
@@ -24,7 +24,7 @@
 
     <fragment
         android:id="@+id/login_dest"
-        android:name="com.beehealthy.digitalclininc.ui.LoginFragment"
+        android:name="com.venkat.digitalclininc.ui.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/login_new_fragment" >
         <action
@@ -34,7 +34,7 @@
 
     <fragment
         android:id="@+id/home_dest"
-        android:name="com.beehealthy.digitalclininc.ui.PatientHomeViewPagerFragment"
+        android:name="com.venkat.digitalclininc.ui.PatientHomeViewPagerFragment"
         android:label="events list"
         tools:layout="@layout/patient_home_view_pager_fragment">
         <action
@@ -50,7 +50,7 @@
 
     <fragment
         android:id="@+id/settings_dest"
-        android:name="com.beehealthy.digitalclininc.ui.SettingsFragment"
+        android:name="com.venkat.digitalclininc.ui.SettingsFragment"
         android:label="SettingsFragment"
         tools:layout="@layout/settings_fragment">
         <action
@@ -60,7 +60,7 @@
 
     <fragment
         android:id="@+id/appointmentDetails_dest"
-        android:name="com.beehealthy.digitalclininc.ui.AppointmentDetailsFragment"
+        android:name="com.venkat.digitalclininc.ui.AppointmentDetailsFragment"
         android:label="appointment_details_fragment"
         tools:layout="@layout/appointment_details_fragment" >
         <action

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@color/white">
+    android:background="@color/light_green">
 
 <!--    // This layout is not used this is for testing purpose to see the performance-->
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -24,9 +24,9 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
                 android:adjustViewBounds="true"
-                android:contentDescription="@string/welcome_screen_mehilainen_phone_image"
+                android:contentDescription="@string/welcome_screen_text"
                 android:scaleType="fitCenter"
-                android:src="@drawable/mehilainen_phone_img" />
+                android:src="@drawable/ic_android" />
 
             <com.google.android.material.textview.MaterialTextView
                 android:id="@+id/welcome_header"
@@ -35,7 +35,7 @@
                 android:gravity="center_horizontal"
                 android:text="@string/welcome_to_omamehlainen"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
-                android:textColor="@color/dark_green"
+                android:textColor="@color/dark_special"
                 android:textStyle="bold" />
 
             <com.google.android.material.textview.MaterialTextView
@@ -46,7 +46,7 @@
                 android:gravity="center_horizontal"
                 android:text="@string/health_services_always"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
-                android:textColor="@color/dark_green" />
+                android:textColor="@color/dark_special" />
 
         </LinearLayout>
 
@@ -90,7 +90,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="5dp"
-                    android:backgroundTint="@color/dark_green"
+                    android:backgroundTint="@color/dark_special"
                     android:paddingHorizontal="40dp"
                     android:paddingVertical="10dp"
                     android:text="@string/secure_sign_in"
@@ -130,7 +130,7 @@
             android:gravity="center_horizontal"
             android:text="@string/don_t_have_a_finnnish"
             android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
-            android:textColor="@color/dark_green"
+            android:textColor="@color/dark_special"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

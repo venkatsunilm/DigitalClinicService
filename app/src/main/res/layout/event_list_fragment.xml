@@ -9,7 +9,7 @@ xmlns:tools="http://schemas.android.com/tools">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/event_list"
-        android:name="com.beehealthy.digitalclininc.PatientEventsFragment"
+        android:name="com.venkat.digitalclininc.PatientEventsFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginLeft="16dp"
