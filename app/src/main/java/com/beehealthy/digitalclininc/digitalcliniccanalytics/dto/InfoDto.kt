@@ -30,8 +30,7 @@ class InfoDto {
                          val lastTimeStamp: Long = 0L,
                          val lastTimeUsed: Long = 0L,
                          val eventType: Int = 0,
-                         val totalTimeUsed: Long = 0L) {
-    }
+                         val totalTimeUsed: Long = 0L)
 
 
 }

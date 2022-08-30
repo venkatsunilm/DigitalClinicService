@@ -11,6 +11,7 @@ import com.beehealthy.digitalclininc.viewmodels.AppointmentDetailsViewModel
 
 class AppointmentDetailsFragment : Fragment() {
 
+    // TODO: UNDER CONSTRUCTION
     companion object {
         fun newInstance() = AppointmentDetailsFragment()
     }

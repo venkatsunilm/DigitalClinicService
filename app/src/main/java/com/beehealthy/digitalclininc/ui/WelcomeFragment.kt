@@ -27,8 +27,8 @@ class WelcomeFragment : Fragment() {
 
         // sending events to google analytics
         object {}.javaClass.enclosingMethod?.name?.let {
-            context?.let { context ->
-                ProjectAnalytics.getInstance(context.applicationContext)
+            this.activity?.let { it1 ->
+                ProjectAnalytics.getInstance(it1.applicationContext)
                     .sendEvent(object {}.javaClass.enclosingClass.simpleName, it)
             }
         }
@@ -44,8 +44,8 @@ class WelcomeFragment : Fragment() {
 
         // sending events to google analytics
         object {}.javaClass.enclosingMethod?.name?.let {
-            activity?.let { context ->
-                ProjectAnalytics.getInstance(context.applicationContext)
+            this.activity?.let { it1 ->
+                ProjectAnalytics.getInstance(it1.applicationContext)
                     .sendEvent(object {}.javaClass.enclosingClass.simpleName, it)
             }
         }
@@ -64,15 +64,15 @@ class WelcomeFragment : Fragment() {
         bindingContext.secureSignInButton.setOnClickListener {
 
             // Sending  screen and button view name to analytics to listen on click
-            context?.let { context ->
-                ProjectAnalytics.getInstance(context.applicationContext)
+            this.activity?.let { it1 ->
+                ProjectAnalytics.getInstance(it1.applicationContext)
                     .sendEvent(
                         object {}.javaClass.enclosingClass.simpleName,
                         bindingContext.secureSignInButton.text.toString()
                     )
             }
 
-            findNavController().navigate(R.id.home_dest, null, options)
+            findNavController().navigate(R.id.login_dest, null, options)
             // TODO: The alternative way to call the destination using action testing, under implementation
             // Navigation.createNavigateOnClickListener(R.id.action_welcome_dest_to_home_dest, null)
         }

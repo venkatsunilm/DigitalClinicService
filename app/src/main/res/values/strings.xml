@@ -14,8 +14,21 @@
     <string name="doctor_name">Doctor name</string>
     <string name="referal_type">Referral type Referral Type</string>
     <string name="referal_notes">Referral notes 1 \nReferral notes 2 \nReferral notes 3 </string>
+    <string name="prescription_notes">Prescription details about when to take is mentioned here. Patient can contact doctor as necessary</string>
     <string name="settings_fragment_text">Setting fragment sample</string>
     <string name="alert_this_page">ALERT!!! This page is under construction, please look back after sometime!!!</string>
     <string name="edit">Edit</string>
     <string name="mehilainen">MEHILAINEN</string>
+    <!-- Strings related to login -->
+    <string name="prompt_email">venkatsunilm@gmail.com</string>
+    <string name="prompt_password">Not needed. Please press below button</string>
+    <string name="action_sign_in">Press here</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome!"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="logout">Logout</string>
+    <string name="retry">Retry</string>
+    <string name="loading_text">Please wait, we are processing your request</string>
 </resources>

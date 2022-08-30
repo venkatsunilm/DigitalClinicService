@@ -30,13 +30,11 @@ class PatientHomeViewPagerFragment : Fragment() {
             }
         }
 
-        // get the binding context from the auto generated FragmentPatientHomeViewPagerBinding
         val binding = PatientHomeViewPagerFragmentBinding.inflate(inflater, container, false)
         val tabLayout = binding.homeTabs
         val viewPager = binding.homeViewPager
 
         // set the adapter before attaching the tab Layout to ViewPager2
-        // viewPager.adapter = PatientHomePagerAdapter(this) OR using scope operator
         PatientHomePagerAdapter(this).also { viewPager.adapter = it }
 
         // Link the TabLayout and the ViewPager2 together.

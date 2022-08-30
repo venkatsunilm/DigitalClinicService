@@ -13,13 +13,23 @@
         android:label="welcome page"
         tools:layout="@layout/welcome_constr_fragment">
         <action
-            android:id="@+id/action_welcome_dest_to_home_dest"
-            app:destination="@id/home_dest"/>
-<!--        // TODO: send args to other fragment, under implementation-->
+            android:id="@+id/action_welcome_dest_to_loginFragment"
+            app:destination="@id/login_dest" />
+        <!--        // TODO: send args to other fragment, under implementation-->
 <!--        <argument-->
 <!--            android:name="flowStepNumber"-->
 <!--            app:argType="integer"-->
 <!--            android:defaultValue="1"/>-->
+    </fragment>
+
+    <fragment
+        android:id="@+id/login_dest"
+        android:name="com.beehealthy.digitalclininc.ui.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/login_new_fragment" >
+        <action
+            android:id="@+id/action_loginFragment_to_home_dest"
+            app:destination="@id/home_dest" />
     </fragment>
 
     <fragment
@@ -57,6 +67,5 @@
             android:id="@+id/action_appointmentDetails_to_home_dest"
             app:destination="@id/home_dest" />
     </fragment>
-
 
 </navigation>

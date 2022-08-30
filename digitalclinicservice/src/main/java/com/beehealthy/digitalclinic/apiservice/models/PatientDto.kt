@@ -29,7 +29,7 @@ data class Instructions(
 )
 
 data class PatientPrescription(
-    val prescriptionId: UUID,
+    val prescriptionId: String,
     val patientFirstName: String,
     val patientEndDate: String,
     val referenceImageUrl: String,
@@ -40,7 +40,7 @@ data class PatientPrescription(
     val referenceSubHeaderType: String,
     val doctorFullName: String,
     val doctorSpecialization: String,
-    val eventWrittenDate: String,
+    val writtenDate: String,
     )
 
 data class DigitalClinic(
