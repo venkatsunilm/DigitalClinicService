@@ -6,7 +6,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.beehealthy.digitalclininc.viewmodels.LoginViewModel"/>
+            type="com.venkat.digitalclininc.viewmodels.LoginViewModel"/>
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -71,7 +71,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="16dp"
-            android:backgroundTint="@color/dark_green"
+            android:backgroundTint="@color/dark_special"
             android:paddingVertical="15dp"
             android:text="@string/action_sign_in"
             android:textColor="@android:color/white"
