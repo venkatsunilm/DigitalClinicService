@@ -12,7 +12,7 @@ import androidx.navigation.navOptions
 import com.venkat.digitalclininc.R
 import com.venkat.digitalclininc.databinding.LoginNewFragmentBinding
 import com.venkat.digitalclininc.digitalcliniccanalytics.ProjectAnalytics
-import com.venkat.digitalclininc.helper.ApiResponseHelper
+import com.venkat.digitalclinic.apiservice.helper.ApiResponseHelper
 import com.venkat.digitalclininc.viewmodels.LoginViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -59,15 +59,14 @@ class LoginFragment : Fragment() {
     private fun callLoginWhenAPiIsReady() {
         viewModel.login().observe(viewLifecycleOwner, Observer {
             // TODO: This if condition will be removed once the API is ready
-            if (it.statusCode == 200) {
-                context?.let { it1 ->
-                    ApiResponseHelper.handleApiResponse(
-                        it1.applicationContext,
-                        it
-                    ) { data: String ->
-                        this.activity?.let { it2 ->
-                            viewModel.onUserLoggedIn(data, it2.application)
-                        }
+                response ->
+            if (response.statusCode == 200) {
+                response.data?.let { token ->
+                    this.activity?.let { fragActivity ->
+                        viewModel.onUserLoggedIn(
+                            token,
+                            fragActivity.applicationContext
+                        )
                     }
                 }
             } else {

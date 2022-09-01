@@ -11,18 +11,18 @@ import com.venkat.digitalclinic.apiservice.models.PatientEvent
 import com.venkat.digitalclininc.adapter.EventAdapter
 import com.venkat.digitalclininc.databinding.EventListFragmentBinding
 import com.venkat.digitalclininc.digitalcliniccanalytics.ProjectAnalytics
-import com.venkat.digitalclininc.helper.ApiResponseHelper
 import com.venkat.digitalclininc.viewmodels.EventListViewModel
 import com.venkat.digitalclininc.viewmodels.EventViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import io.reactivex.rxjava3.core.Observable
+import kotlinx.coroutines.Job
 
 @AndroidEntryPoint
 class EventListFragment : Fragment() {
-    private lateinit var adapter: EventAdapter
     private lateinit var bindingContext: EventListFragmentBinding
     private val eventViewModel: EventViewModel by viewModels()
     private val eventListViewModel: EventListViewModel by viewModels()
+    private lateinit var adapter: EventAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -36,28 +36,21 @@ class EventListFragment : Fragment() {
                     .sendEvent(object {}.javaClass.enclosingClass.simpleName, it)
             }
         }
-
+        adapter = EventAdapter(listOf(), eventViewModel)
         bindingContext = EventListFragmentBinding.inflate(inflater, container, false)
+        bindingContext.eventList.adapter = adapter
 
         eventListViewModel.getEvents().observe(viewLifecycleOwner) { it ->
             // TODO: This TEMPORARY if condition will be removed once the API is ready
             if (it.statusCode == 200) {
-                context?.let { it1 ->
-                    ApiResponseHelper.handleApiResponse(
-                        it1.applicationContext,
-                        it
-                    ) { items: List<PatientEvent>? ->
-                        if (items != null) {
-                            adapter = EventAdapter(items, eventViewModel)
-                        }
-                    }
-                }
+                it.data?.let { items -> adapter = EventAdapter(items, eventViewModel) }
             } else {
+                // TODO: Remove this observable
                 Observable
                     .fromCallable { EventsMockList.getEventsMockList().value }
                     .subscribe { item: List<PatientEvent>? ->
                         if (item != null) {
-                            adapter = EventAdapter(item.toList(), eventViewModel)
+                            adapter = EventAdapter(item, eventViewModel)
                         }
                     }
                 bindingContext.eventList.adapter = adapter
@@ -65,4 +58,5 @@ class EventListFragment : Fragment() {
         }
         return bindingContext.root
     }
+
 }
