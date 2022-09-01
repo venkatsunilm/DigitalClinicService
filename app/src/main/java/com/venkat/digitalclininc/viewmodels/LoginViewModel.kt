@@ -1,6 +1,7 @@
 package com.venkat.digitalclininc.viewmodels
 
 import android.app.Application
+import android.content.Context
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.venkat.digitalclinic.apiservice.api.RepositoryServiceManager
@@ -34,7 +35,7 @@ class LoginViewModel @Inject internal constructor(
         return repositoryServiceManager.login(username.value!!, password.value!!)
     }
 
-    fun onUserLoggedIn(token: String, context: Application) {
+    fun onUserLoggedIn(token: String, context: Context) {
         showProgressBar.value = false
         // Token is stored here once the user is logged in.
         AppPreference.getInstance(context)

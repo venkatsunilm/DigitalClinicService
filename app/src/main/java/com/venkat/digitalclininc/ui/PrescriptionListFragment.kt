@@ -11,7 +11,8 @@ import com.venkat.digitalclinic.apiservice.models.PatientPrescription
 import com.venkat.digitalclininc.adapter.PrescriptionAdapter
 import com.venkat.digitalclininc.databinding.PrescriptionListFragmentBinding
 import com.venkat.digitalclininc.digitalcliniccanalytics.ProjectAnalytics
-import com.venkat.digitalclininc.helper.ApiResponseHelper
+import com.venkat.digitalclinic.apiservice.helper.ApiResponseHelper
+import com.venkat.digitalclininc.adapter.EventAdapter
 import com.venkat.digitalclininc.viewmodels.PrescriptionListViewModel
 import com.venkat.digitalclininc.viewmodels.PrescriptionViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -43,23 +44,14 @@ class PrescriptionListFragment: Fragment(){
         prescriptionListViewModel.getPrescriptions().observe(viewLifecycleOwner) { it ->
             // TODO: This TEMPORARY if condition will be removed once the API is ready
             if (it.statusCode == 200) {
-                context?.let { it1 ->
-                    ApiResponseHelper.handleApiResponse(
-                        it1.applicationContext,
-                        it
-                    ) { items: List<PatientPrescription>? ->
-                        if (items != null) {
-                            adapter = PrescriptionAdapter(items, prescriptionViewModel)
-//                            adapter.submitList(items)
-                        }
-                    }
-                }
+                it.data?.let { items -> adapter = PrescriptionAdapter(items, prescriptionViewModel) }
             } else {
+                // TODO: Remove this observable
                 Observable
                     .fromCallable { EventsMockList.getPrescriptionMockList().value }
                     .subscribe { item: List<PatientPrescription>? ->
                         if (item != null) {
-                            adapter = PrescriptionAdapter(item.toList(), prescriptionViewModel)
+                            adapter = PrescriptionAdapter(item, prescriptionViewModel)
                         }
                     }
                 bindingContext.prescriptionList.adapter = adapter

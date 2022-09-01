@@ -15,6 +15,7 @@ class AppPreference(@ApplicationContext private var context: Context) {
     companion object {
         private lateinit var masterKeyAlias: MasterKey
         private var appPreference: AppPreference? = null
+        // TODO: Handle the context properly when Hilt is completely ready
         fun getInstance(context: Context): AppPreference {
             if (appPreference == null) {
 
