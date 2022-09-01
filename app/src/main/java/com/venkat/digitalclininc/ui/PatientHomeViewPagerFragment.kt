@@ -13,7 +13,6 @@ import com.venkat.digitalclininc.adapter.PRESCRIPTION_PAGE
 import com.venkat.digitalclininc.adapter.PatientHomePagerAdapter
 import com.venkat.digitalclininc.adapter.VACCINATIONS_PAGE
 import com.venkat.digitalclininc.databinding.PatientHomeViewPagerFragmentBinding
-import com.venkat.digitalclininc.digitalcliniccanalytics.ProjectAnalytics
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -24,13 +23,6 @@ class PatientHomeViewPagerFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
-        object {}.javaClass.enclosingMethod?.name?.let {
-            activity?.let { context ->
-                ProjectAnalytics.getInstance(context)
-                    .sendEvent(object {}.javaClass.enclosingClass.simpleName, it)
-            }
-        }
 
         val binding = PatientHomeViewPagerFragmentBinding.inflate(inflater, container, false)
         val tabLayout = binding.homeTabs
