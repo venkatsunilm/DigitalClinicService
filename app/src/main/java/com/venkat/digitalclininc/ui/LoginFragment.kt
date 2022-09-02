@@ -46,6 +46,8 @@ class LoginFragment : Fragment() {
     }
 
     private fun publishLogin() {
+        // TODO: expose the list of login Rx Observable and LiveData
+        //  separately in the ViewModel and implement their bindings also separately as an exercise
         viewModel.login().observe(viewLifecycleOwner) { response ->
             response.data?.let { token ->
                 this.activity?.let { fragActivity ->

@@ -1,9 +1,11 @@
 package com.venkat.digitalclininc.viewmodels
 
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.*
 import com.venkat.digitalclinic.apiservice.api.RepositoryServiceManager
 import com.venkat.digitalclinic.apiservice.api.mockdata.EventsMockList
 import com.venkat.digitalclinic.apiservice.models.PatientEvent
+import com.venkat.digitalclininc.adapter.EventAdapter
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -12,6 +14,10 @@ import javax.inject.Inject
 class EventListViewModel @Inject internal constructor(
     private val repositoryServiceManager: RepositoryServiceManager
 ) : ViewModel() {
+
+    init {
+        getEvents()
+    }
 
     fun getEvents(): LiveData<List<PatientEvent>> {
         var storageLiveData: LiveData<List<PatientEvent>> =
