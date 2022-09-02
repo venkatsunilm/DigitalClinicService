@@ -41,7 +41,10 @@ class EventAdapter(
             eventViewModel.doctorName = item.doctorFullName
             eventViewModel.writtenDate = item.writtenDate
 
-            binding.viewmodel = eventViewModel
+            binding.apply {
+                viewmodel = eventViewModel
+                executePendingBindings()
+            }
         }
     }
 

@@ -11,6 +11,7 @@ import com.google.gson.GsonBuilder
 class RetrofitClient {
     companion object {
         private var retrofit: Retrofit? = null
+        // TODO: PASS THE BASE URL, ONCE READY
         private const val BASE_URL = "https://example/api/"
         var gson = GsonBuilder()
             .setLenient()

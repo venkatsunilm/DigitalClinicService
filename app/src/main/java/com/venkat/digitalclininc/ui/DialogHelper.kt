@@ -4,7 +4,8 @@ import android.app.AlertDialog
 import android.content.Context
 import com.venkat.digitalclininc.R
 
-object DialogHelper {
+// TODO: Under constructions
+class DialogHelper {
 
     fun showOkDialog(
         context: Context,

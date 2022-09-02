@@ -5,8 +5,7 @@
 package com.venkat.digitalclinic.apiservice.api.repository
 
 import androidx.lifecycle.MutableLiveData
-import com.venkat.digitalclinic.apiservice.api.contracts.IUserRepository
-import com.venkat.digitalclinic.apiservice.api.contracts.requests.IPatientService
+import com.venkat.digitalclinic.apiservice.api.contracts.IPatientRepository
 import com.venkat.digitalclinic.apiservice.helper.RetrofitClient
 import com.venkat.digitalclinic.apiservice.models.ResponseObject
 import com.google.gson.JsonObject
@@ -15,7 +14,7 @@ import retrofit2.Callback
 import retrofit2.Response
 import javax.inject.Inject
 
-class PatientRepository @Inject constructor() : IUserRepository {
+class PatientRepository @Inject constructor() : IPatientRepository {
     private var userService: IPatientService =
         RetrofitClient.getInstance().create(IPatientService::class.java)
 
@@ -27,7 +26,9 @@ class PatientRepository @Inject constructor() : IUserRepository {
         val userCredentials = hashMapOf(USERNAME_KEY to username, PASSWORD_KEY to password)
         userService.login(userCredentials).enqueue(object : Callback<JsonObject> {
             override fun onFailure(call: Call<JsonObject>, t: Throwable) {
-                responseData.postValue(ResponseObject(null, t.message))
+                // TODO: remove this once the API service is ready
+                val token = "osnvosvojnonvojnsdojcnojncjnsojdncojsncojsnjdn"
+                responseData.postValue(ResponseObject(token, t.message))
             }
 
             override fun onResponse(call: Call<JsonObject>, response: Response<JsonObject>) {

@@ -8,13 +8,12 @@ import android.view.ViewGroup
 import com.venkat.digitalclininc.R
 import com.venkat.digitalclininc.viewmodels.AppointmentDetailsViewModel
 
+// TODO: UNDER CONSTRUCTION
 class AppointmentDetailsFragment : Fragment() {
 
-    // TODO: UNDER CONSTRUCTION
     companion object {
         fun newInstance() = AppointmentDetailsFragment()
     }
-
     private lateinit var viewModel: AppointmentDetailsViewModel
 
     override fun onCreateView(

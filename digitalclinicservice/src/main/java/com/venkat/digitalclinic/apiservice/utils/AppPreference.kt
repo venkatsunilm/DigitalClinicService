@@ -10,12 +10,11 @@ import androidx.security.crypto.EncryptedSharedPreferences
 import androidx.security.crypto.MasterKey
 import dagger.hilt.android.qualifiers.ApplicationContext
 
-// TODO: Move this to other module as necessary
+// TODO: UNDER CONSTRUCTION
 class AppPreference(@ApplicationContext private var context: Context) {
     companion object {
         private lateinit var masterKeyAlias: MasterKey
         private var appPreference: AppPreference? = null
-        // TODO: Handle the context properly when Hilt is completely ready
         fun getInstance(context: Context): AppPreference {
             if (appPreference == null) {
 
@@ -47,7 +46,6 @@ class AppPreference(@ApplicationContext private var context: Context) {
     fun putString(key: String, text: String) {
         with(sharedPreferencesEditor) {
             putString(key, text).apply()
-//            commit()
         }
     }
 

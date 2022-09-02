@@ -1,4 +1,4 @@
-package com.venkat.digitalclinic.apiservice.api.contracts.requests
+package com.venkat.digitalclinic.apiservice.api.repository
 
 import com.venkat.digitalclinic.apiservice.models.DigitalClinic
 import com.venkat.digitalclinic.apiservice.models.PatientEvent
@@ -9,9 +9,9 @@ import retrofit2.http.Header
 
 interface IPatientDetailsService {
     @GET("v1/events")
-    fun getEvents(
+    suspend fun getEvents(
         @Header("Authorization") token: String,
-    ): Call<List<PatientEvent>>
+    ): List<PatientEvent>
 
     @GET("v1/prescriptions")
     fun getPrescriptions(

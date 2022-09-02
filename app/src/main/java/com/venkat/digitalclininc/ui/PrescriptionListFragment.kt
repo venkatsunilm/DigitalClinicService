@@ -6,20 +6,16 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import com.venkat.digitalclinic.apiservice.api.mockdata.EventsMockList
-import com.venkat.digitalclinic.apiservice.models.PatientPrescription
+import androidx.lifecycle.lifecycleScope
 import com.venkat.digitalclininc.adapter.PrescriptionAdapter
 import com.venkat.digitalclininc.databinding.PrescriptionListFragmentBinding
-import com.venkat.digitalclininc.digitalcliniccanalytics.ProjectAnalytics
-import com.venkat.digitalclinic.apiservice.helper.ApiResponseHelper
-import com.venkat.digitalclininc.adapter.EventAdapter
 import com.venkat.digitalclininc.viewmodels.PrescriptionListViewModel
 import com.venkat.digitalclininc.viewmodels.PrescriptionViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import io.reactivex.rxjava3.core.Observable
+import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class PrescriptionListFragment: Fragment(){
+class PrescriptionListFragment : Fragment() {
 
     private lateinit var adapter: PrescriptionAdapter
     private lateinit var bindingContext: PrescriptionListFragmentBinding
@@ -32,28 +28,11 @@ class PrescriptionListFragment: Fragment(){
         savedInstanceState: Bundle?
     ): View {
 
-        object {}.javaClass.enclosingMethod?.name?.let {
-            this.activity?.let { it1 ->
-                ProjectAnalytics.getInstance(it1.applicationContext)
-                    .sendEvent(object {}.javaClass.enclosingClass.simpleName, it)
-            }
-        }
-
         bindingContext = PrescriptionListFragmentBinding.inflate(inflater, container, false)
 
         prescriptionListViewModel.getPrescriptions().observe(viewLifecycleOwner) { it ->
-            // TODO: This TEMPORARY if condition will be removed once the API is ready
-            if (it.statusCode == 200) {
-                it.data?.let { items -> adapter = PrescriptionAdapter(items, prescriptionViewModel) }
-            } else {
-                // TODO: Remove this observable
-                Observable
-                    .fromCallable { EventsMockList.getPrescriptionMockList().value }
-                    .subscribe { item: List<PatientPrescription>? ->
-                        if (item != null) {
-                            adapter = PrescriptionAdapter(item, prescriptionViewModel)
-                        }
-                    }
+            it.data?.let { items -> adapter = PrescriptionAdapter(items, prescriptionViewModel) }
+            lifecycleScope.launch {
                 bindingContext.prescriptionList.adapter = adapter
             }
         }

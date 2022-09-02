@@ -2,7 +2,7 @@
  * Copyright (c) 2021 F-secure Corporation.
  */
 
-package com.venkat.digitalclinic.apiservice.api.contracts.requests
+package com.venkat.digitalclinic.apiservice.api.repository
 
 import com.google.gson.JsonObject
 import retrofit2.Call

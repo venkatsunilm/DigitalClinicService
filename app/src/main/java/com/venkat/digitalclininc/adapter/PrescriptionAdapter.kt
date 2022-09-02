@@ -41,7 +41,10 @@ class PrescriptionAdapter(
             prescriptionViewModel.doctorName = item.doctorFullName
             prescriptionViewModel.writtenDate = item.writtenDate
 
-            binding.viewmodel = prescriptionViewModel
+            binding.apply {
+                viewmodel = prescriptionViewModel
+                executePendingBindings()
+            }
         }
     }
 

@@ -3,8 +3,8 @@ package com.venkat.digitalclinic.apiservice.api.repository
 import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.venkat.digitalclinic.apiservice.api.contracts.requests.IPatientDetailsRepository
-import com.venkat.digitalclinic.apiservice.api.contracts.requests.IPatientDetailsService
+import com.venkat.digitalclinic.apiservice.api.contracts.IPatientDetailsRepository
+import com.venkat.digitalclinic.apiservice.api.mockdata.EventsMockList
 import com.venkat.digitalclinic.apiservice.helper.RetrofitClient
 import com.venkat.digitalclinic.apiservice.models.DigitalClinic
 import com.venkat.digitalclinic.apiservice.models.PatientEvent
@@ -27,40 +27,9 @@ class PatientDetailsRepository @Inject constructor(@ApplicationContext val conte
 
     private var appPreference: AppPreference = AppPreference.getInstance(context)
 
-    override fun getEvents(): LiveData<ResponseObject<List<PatientEvent>>> {
-        val responseData: MutableLiveData<ResponseObject<List<PatientEvent>>> = MutableLiveData()
+    override suspend fun getEvents(): List<PatientEvent> {
         val token = appPreference.getString(AppPreference.Keys.TOKEN)
-        patientDetailsService.getEvents(token)
-            .enqueue(object : Callback<List<PatientEvent>> {
-
-                override fun onFailure(call: Call<List<PatientEvent>>, t: Throwable) {
-                    responseData.postValue(ResponseObject(null, t.message))
-                }
-
-                override fun onResponse(
-                    call: Call<List<PatientEvent>>,
-                    response: Response<List<PatientEvent>>
-                ) {
-                    if (response.isSuccessful) {
-                        responseData.postValue(
-                            ResponseObject(
-                                response.body(),
-                                statusCode = response.code()
-                            )
-                        )
-                    } else {
-                        responseData.postValue(
-                            ResponseObject(
-                                null,
-                                response.message(),
-                                response.code()
-                            )
-                        )
-                    }
-                }
-
-            })
-        return responseData
+        return patientDetailsService.getEvents(token)
     }
 
     override fun getPrescriptions(): LiveData<ResponseObject<List<PatientPrescription>>> {
@@ -71,7 +40,12 @@ class PatientDetailsRepository @Inject constructor(@ApplicationContext val conte
             .enqueue(object : Callback<List<PatientPrescription>> {
 
                 override fun onFailure(call: Call<List<PatientPrescription>>, t: Throwable) {
-                    responseData.postValue(ResponseObject(null, t.message))
+                    responseData.postValue(
+                        ResponseObject(
+                            EventsMockList.getPrescriptionMockList().value,
+                            t.message
+                        )
+                    )
                 }
 
                 override fun onResponse(
