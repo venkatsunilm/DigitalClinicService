@@ -42,7 +42,7 @@ class PatientDetailsRepository @Inject constructor(@ApplicationContext val conte
                 override fun onFailure(call: Call<List<PatientPrescription>>, t: Throwable) {
                     responseData.postValue(
                         ResponseObject(
-                            EventsMockList.getPrescriptionMockList().value,
+                            EventsMockList.getPrescriptionMockList(),
                             t.message
                         )
                     )

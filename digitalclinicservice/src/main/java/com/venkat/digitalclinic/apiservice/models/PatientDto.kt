@@ -41,7 +41,7 @@ data class PatientPrescription(
     val doctorFullName: String,
     val doctorSpecialization: String,
     val writtenDate: String,
-    )
+)
 
 data class DigitalClinic(
     val digitalClinicId: UUID,

@@ -5,7 +5,7 @@
     <data>
 
         <variable
-            name="viewmodel"
+            name="prescriptionViewModel"
             type="com.venkat.digitalclininc.viewmodels.PrescriptionViewModel" />
     </data>
 
@@ -30,7 +30,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="24dp"
                 android:layout_marginBottom="8dp"
-                android:text="@{viewmodel.validityDate}"
+                android:text="@{prescriptionViewModel.validityDate}"
                 android:textAlignment="viewEnd"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
                 android:textColor="@color/dark_special"
@@ -45,7 +45,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="24dp"
                 android:layout_marginBottom="8dp"
-                android:text="@{viewmodel.patientName}"
+                android:text="@{prescriptionViewModel.patientName}"
                 android:textAlignment="viewEnd"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
                 android:textColor="@color/light_green"
@@ -81,7 +81,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
                     android:maxLines="1"
-                    android:text="@{viewmodel.referralType}"
+                    android:text="@{prescriptionViewModel.referralType}"
                     android:textAlignment="textStart"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
                     android:textColor="@color/dark_special" />
@@ -106,7 +106,7 @@
                 android:id="@+id/doctor_name"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@{viewmodel.doctorName}"
+                android:text="@{prescriptionViewModel.doctorName}"
                 android:textAlignment="textStart"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
                 android:textColor="@color/black"
@@ -120,7 +120,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="15dp"
-                android:text="@{viewmodel.writtenDate}"
+                android:text="@{prescriptionViewModel.writtenDate}"
                 android:textAlignment="textStart"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
                 android:textColor="@color/black"

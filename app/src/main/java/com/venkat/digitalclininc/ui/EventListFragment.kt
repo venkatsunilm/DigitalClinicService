@@ -17,7 +17,8 @@ import kotlinx.coroutines.launch
 @AndroidEntryPoint
 class EventListFragment : Fragment() {
     private lateinit var bindingContext: EventListFragmentBinding
-    private val eventViewModel: EventViewModel by viewModels()
+
+    //    private val eventViewModel: EventViewModel by viewModels()
     private val eventListViewModel: EventListViewModel by viewModels()
     private lateinit var adapter: EventAdapter
 
@@ -27,18 +28,11 @@ class EventListFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
 
-//        adapter = EventAdapter(listOf(), eventViewModel)
         bindingContext = EventListFragmentBinding.inflate(inflater, container, false)
-//        bindingContext.eventList.adapter = adapter
 
-        // TODO: expose the list of login Rx Observable and LiveData
-        //  separately in the ViewModel and implement their bindings also separately as an exercise
-//        eventListViewModel.getEvents().observe(viewLifecycleOwner) { it ->
-//            adapter = EventAdapter(it, eventViewModel)
-//            lifecycleScope.launch {
-//                bindingContext.eventList.adapter = adapter
-//            }
-//        }
+        adapter = EventAdapter(listOf())
+        bindingContext.eventList.adapter = adapter
+
         return bindingContext.root
     }
 
@@ -47,9 +41,23 @@ class EventListFragment : Fragment() {
 
         // Specify the fragment view as the lifecycle owner of the binding.
         // This is used so that the binding can observe LiveData updates
-        bindingContext.lifecycleOwner = viewLifecycleOwner
+//        bindingContext.lifecycleOwner = viewLifecycleOwner
 
         eventListViewModel.getEvents()
+        // TODO: expose the list of login Rx Observable and LiveData
+        //  separately in the ViewModel and implement their bindings also separately as an exercise
+        eventListViewModel.storageLiveData.observe(viewLifecycleOwner) { it ->
+            lifecycleScope.launch {
+                adapter = EventAdapter(it)
+                bindingContext.eventList.adapter = adapter
+            }
+
+//            adapter.submitList(it) {
+//                // At this point, the content should be drawn
+//                activity?.reportFullyDrawn()
+//            }
+        }
+
 
         super.onViewCreated(view, savedInstanceState)
     }

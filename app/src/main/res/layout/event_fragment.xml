@@ -5,7 +5,7 @@
     <data>
 
         <variable
-            name="viewmodel"
+            name="eventViewModel"
             type="com.venkat.digitalclininc.viewmodels.EventViewModel" />
     </data>
 
@@ -29,7 +29,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
-                android:text="@{viewmodel.validityDate}"
+                android:text="@{eventViewModel.validityDate}"
                 android:textAlignment="viewEnd"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
                 android:textColor="@color/black"
@@ -42,7 +42,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
-                android:text="@{viewmodel.patientName}"
+                android:text="@{eventViewModel.patientName}"
                 android:textAlignment="viewEnd"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
                 android:textColor="@color/black"
@@ -77,7 +77,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
                     android:maxLines="1"
-                    android:text="@{viewmodel.referralType}"
+                    android:text="@{eventViewModel.referralType}"
                     android:textAlignment="textStart"
                     android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
                     android:textColor="@color/dark_special" />
@@ -102,7 +102,7 @@
                 android:id="@+id/doctor_name"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@{viewmodel.doctorName}"
+                android:text="@{eventViewModel.doctorName}"
                 android:textAlignment="textStart"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
                 android:textColor="@color/black"
@@ -116,7 +116,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="15dp"
-                android:text="@{viewmodel.writtenDate}"
+                android:text="@{eventViewModel.writtenDate}"
                 android:textAlignment="textStart"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
                 android:textColor="@color/black"

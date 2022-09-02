@@ -9,12 +9,8 @@ import com.venkat.digitalclinic.apiservice.models.PatientPrescription
 // Made this class as singleton to know the usage
 object EventsMockList {
 
-
-    fun getEventsMockList() : LiveData<List<PatientEvent>> {
-
+    fun getEventsMockList() : List<PatientEvent> {
         val eventList = mutableListOf<PatientEvent>()
-        val events = MutableLiveData<List<PatientEvent>>()
-
         eventList.add(PatientEvent(
             "1",
             "Venkat",
@@ -77,17 +73,12 @@ object EventsMockList {
             "Bone specialist",
             "05 Jan, 2018"
         ))
-
-
-        events.value = eventList
-
-        return events
+        return eventList
     }
-    fun getPrescriptionMockList() : LiveData<List<PatientPrescription>> {
+
+    fun getPrescriptionMockList() : List<PatientPrescription> {
 
         val eventList = mutableListOf<PatientPrescription>()
-        val events = MutableLiveData<List<PatientPrescription>>()
-
         eventList.add(PatientPrescription(
             "1",
             "Venkat",
@@ -159,10 +150,7 @@ object EventsMockList {
             "05 Jan, 2018"
         ))
 
-
-        events.value = eventList
-
-        return events
+        return eventList
     }
 
 }

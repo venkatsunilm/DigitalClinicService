@@ -31,7 +31,7 @@ class PrescriptionListFragment : Fragment() {
         bindingContext = PrescriptionListFragmentBinding.inflate(inflater, container, false)
 
         prescriptionListViewModel.getPrescriptions().observe(viewLifecycleOwner) { it ->
-            it.data?.let { items -> adapter = PrescriptionAdapter(items, prescriptionViewModel) }
+            it.data?.let { items -> adapter = PrescriptionAdapter(items) }
             lifecycleScope.launch {
                 bindingContext.prescriptionList.adapter = adapter
             }

@@ -63,8 +63,8 @@ dependencies {
     // allow access to new API on older API versions of the platform
     implementation 'androidx.appcompat:appcompat:1.5.0'
     // RxKotlin implementation
-    implementation 'io.reactivex.rxjava3:rxkotlin:3.0.1'
-    implementation "io.reactivex.rxjava3:rxandroid:3.0.0"
+//    implementation 'io.reactivex.rxjava3:rxkotlin:3.0.1'
+//    implementation "io.reactivex.rxjava3:rxandroid:3.0.0"
 
     // Dagger, use Hilt in later versions
     implementation "com.google.dagger:hilt-android:2.41"

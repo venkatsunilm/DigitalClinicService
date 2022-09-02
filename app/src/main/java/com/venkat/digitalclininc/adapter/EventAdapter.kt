@@ -2,14 +2,15 @@ package com.venkat.digitalclininc.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.venkat.digitalclinic.apiservice.models.PatientEvent
 import com.venkat.digitalclininc.databinding.EventFragmentBinding
 import com.venkat.digitalclininc.viewmodels.EventViewModel
 
 class EventAdapter(
-    private var values: List<PatientEvent>,
-    private val eventViewModel: EventViewModel
+    private var values: List<PatientEvent>
 ) : RecyclerView.Adapter<EventAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -33,25 +34,36 @@ class EventAdapter(
     inner class ViewHolder(
         private val binding: EventFragmentBinding
     ) : RecyclerView.ViewHolder(binding.root) {
-
         fun updateBindValues(item: PatientEvent) {
-            eventViewModel.validityDate = item.ValidityDate
-            eventViewModel.patientName = item.patientFirstName
-            eventViewModel.referralType = item.referenceHeaderType
-            eventViewModel.doctorName = item.doctorFullName
-            eventViewModel.writtenDate = item.writtenDate
-
-            binding.apply {
-                viewmodel = eventViewModel
+            with(binding) {
+                eventViewModel = EventViewModel(item)
                 executePendingBindings()
             }
         }
     }
+}
 
-    fun submitList(newData: List<PatientEvent>) {
-        values = ArrayList()
-        values = newData
-        notifyDataSetChanged()
+private class EventsDiffCallBack : DiffUtil.ItemCallback<PatientEvent>() {
+
+    //    override fun areItemsTheSame(
+//        oldItem: PatientEvent,
+//        newItem: PatientEvent
+//    ): Boolean {
+//        return false
+////        return oldItem.eventId == newItem.eventId
+//    }
+//
+//    override fun areContentsTheSame(
+//        oldItem: PatientEvent,
+//        newItem: PatientEvent
+//    ): Boolean {
+//        return false
+//    }
+    override fun areItemsTheSame(oldItem: PatientEvent, newItem: PatientEvent): Boolean {
+        TODO("Not yet implemented")
     }
 
+    override fun areContentsTheSame(oldItem: PatientEvent, newItem: PatientEvent): Boolean {
+        TODO("Not yet implemented")
+    }
 }

@@ -1,14 +1,14 @@
 package com.venkat.digitalclininc.viewmodels
 
 import androidx.lifecycle.ViewModel
+import com.venkat.digitalclinic.apiservice.models.PatientPrescription
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
-@HiltViewModel
-class PrescriptionViewModel @Inject internal constructor(): ViewModel() {
-    var validityDate = "Validity Date"
-    var patientName = "Patient Name"
-    var referralType = "Referral type"
-    var doctorName = "Doctor Name"
-    var writtenDate = "Written Date"
+class PrescriptionViewModel(item: PatientPrescription) : ViewModel() {
+    val validityDate = item.patientEndDate
+    val patientName = item.patientFirstName
+    val referralType = item.referenceHeaderType
+    val doctorName = item.doctorFullName
+    val writtenDate = item.writtenDate
 }
