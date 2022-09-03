@@ -1,7 +1,6 @@
 package com.venkat.digitalclinic.apiservice.api
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import com.venkat.digitalclinic.apiservice.api.contracts.IPatientDetailsRepository
 import com.venkat.digitalclinic.apiservice.api.contracts.IPatientRepository
 import com.venkat.digitalclinic.apiservice.api.repository.PatientDetailsRepository
@@ -17,10 +16,10 @@ class RepositoryServiceManager @Inject constructor(
     private val patientDetailsRepository: PatientDetailsRepository
 ) : IPatientRepository, IPatientDetailsRepository {
 
-    override fun login(
+    override suspend fun login(
         username: String,
         password: String
-    ): MutableLiveData<ResponseObject<String>> {
+    ): String {
         return patientRepository.login(username, password)
     }
 
@@ -35,4 +34,5 @@ class RepositoryServiceManager @Inject constructor(
     override fun getDigitalClinicInfo(): LiveData<ResponseObject<DigitalClinic>> {
         return patientDetailsRepository.getDigitalClinicInfo()
     }
+
 }

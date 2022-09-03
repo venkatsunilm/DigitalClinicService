@@ -8,21 +8,20 @@ import android.content.Context
 import android.content.SharedPreferences
 import androidx.security.crypto.EncryptedSharedPreferences
 import androidx.security.crypto.MasterKey
-import dagger.hilt.android.qualifiers.ApplicationContext
 
 // TODO: UNDER CONSTRUCTION
-class AppPreference(@ApplicationContext private var context: Context) {
+class AppPreference() {
     companion object {
         private lateinit var masterKeyAlias: MasterKey
         private var appPreference: AppPreference? = null
+        private lateinit var applicationContext: Context
         fun getInstance(context: Context): AppPreference {
             if (appPreference == null) {
-
+                applicationContext = context
                 masterKeyAlias = MasterKey.Builder(context, MasterKey.DEFAULT_MASTER_KEY_ALIAS)
                     .setKeyScheme(MasterKey.KeyScheme.AES256_GCM)
                     .build()
-
-                appPreference = AppPreference(context.applicationContext)
+                appPreference = AppPreference()
             }
             return appPreference!!
         }
@@ -30,7 +29,7 @@ class AppPreference(@ApplicationContext private var context: Context) {
 
     private val sharedPreferencesName = "auth_digital_clinic"
     private val sharedPreferenceObject = EncryptedSharedPreferences.create(
-        context,
+        applicationContext,
         sharedPreferencesName,
         masterKeyAlias,
         EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
@@ -56,7 +55,6 @@ class AppPreference(@ApplicationContext private var context: Context) {
     fun putLong(key: String, value: Long) {
         with(sharedPreferencesEditor) {
             putLong(key, value).apply()
-//            commit()
         }
     }
 
@@ -68,7 +66,7 @@ class AppPreference(@ApplicationContext private var context: Context) {
     fun clearPreference() {
         with(sharedPreferencesEditor) { clear() }
         if (sharedPreferenceObject.contains(sharedPreferencesName)) {
-            with(sharedPreferencesEditor) { remove(sharedPreferencesName).apply() }
+            with(sharedPreferencesEditor) { remove(sharedPreferencesName).commit() }
         }
     }
 }

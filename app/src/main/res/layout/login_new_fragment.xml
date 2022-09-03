@@ -5,7 +5,7 @@
 
     <data>
         <variable
-            name="viewModel"
+            name="loginViewModel"
             type="com.venkat.digitalclininc.viewmodels.LoginViewModel"/>
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -30,7 +30,7 @@
             android:hint="@string/prompt_email"
             android:maxLines="1"
             android:paddingHorizontal="10dp"
-            android:text="@={viewModel.username}"
+            android:text="@{loginViewModel.userName}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -48,22 +48,20 @@
             android:inputType="textPassword"
             android:maxLines="1"
             android:paddingHorizontal="10dp"
-            android:text="@={viewModel.password}"
+            android:text="@{loginViewModel.password}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/username" />
 
-        <include
-            android:id="@+id/progress_view"
-            layout="@layout/progressbar_view"
-            android:layout_width="match_parent"
+        <ProgressBar
+            android:id="@+id/spinner"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:visibility="gone"
-            app:layout_constraintBottom_toTopOf="@+id/login_button"
-            app:layout_constraintTop_toBottomOf="@+id/password"
-            tools:layout_editor_absoluteX="10dp">
-
-        </include>
+            android:visibility="visible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/login_button"

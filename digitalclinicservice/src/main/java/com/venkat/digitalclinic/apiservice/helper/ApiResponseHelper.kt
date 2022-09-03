@@ -26,3 +26,5 @@ class ApiResponseHelper {
         }
     }
 }
+
+class ResponseError(message: String, cause: Throwable) : Throwable(message, cause)

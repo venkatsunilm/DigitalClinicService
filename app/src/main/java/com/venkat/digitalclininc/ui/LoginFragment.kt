@@ -6,20 +6,18 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.navOptions
 import com.venkat.digitalclininc.R
 import com.venkat.digitalclininc.databinding.LoginNewFragmentBinding
 import com.venkat.digitalclininc.viewmodels.LoginViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class LoginFragment : Fragment() {
 
     private lateinit var bindingContext: LoginNewFragmentBinding
-    private val viewModel: LoginViewModel by viewModels()
+    private val loginViewModel: LoginViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -28,36 +26,23 @@ class LoginFragment : Fragment() {
     ): View {
 
         bindingContext = LoginNewFragmentBinding.inflate(inflater, container, false)
+
+        loginViewModel.spinner.observe(viewLifecycleOwner) {
+            if (it) bindingContext.spinner.visibility = View.VISIBLE
+            else bindingContext.spinner.visibility = View.GONE
+        }
+
         return bindingContext.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        viewModel.showProgressBar.observe(viewLifecycleOwner) {
-            if (it) bindingContext.progressView.progressbarText.visibility = View.VISIBLE
-            else bindingContext.progressView.progressbarText.visibility = View.GONE
-        }
+        bindingContext.lifecycleOwner = viewLifecycleOwner
 
-        // TODO: Yet to handle validation checks for login
+        // TODO: Login screen partially implemented with mock data
         bindingContext.loginButton.setOnClickListener {
-            publishLogin()
-        }
-    }
-
-    private fun publishLogin() {
-        // TODO: expose the list of login Rx Observable and LiveData
-        //  separately in the ViewModel and implement their bindings also separately as an exercise
-        viewModel.login().observe(viewLifecycleOwner) { response ->
-            response.data?.let { token ->
-                this.activity?.let { fragActivity ->
-                    viewModel.onUserLoggedIn(
-                        token,
-                        fragActivity.applicationContext
-                    )
-                }
-            }
-            lifecycleScope.launch {
+            loginViewModel.login().observe(viewLifecycleOwner) {
                 navigateToHome()
             }
         }
