@@ -5,10 +5,10 @@
 package com.venkat.digitalclinic.apiservice.api.repository
 
 import androidx.lifecycle.MutableLiveData
+import com.google.gson.JsonObject
 import com.venkat.digitalclinic.apiservice.api.contracts.IPatientRepository
 import com.venkat.digitalclinic.apiservice.helper.RetrofitClient
 import com.venkat.digitalclinic.apiservice.models.ResponseObject
-import com.google.gson.JsonObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

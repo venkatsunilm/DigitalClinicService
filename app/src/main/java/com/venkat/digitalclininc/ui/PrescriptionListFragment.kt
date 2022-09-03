@@ -10,7 +10,6 @@ import androidx.lifecycle.lifecycleScope
 import com.venkat.digitalclininc.adapter.PrescriptionAdapter
 import com.venkat.digitalclininc.databinding.PrescriptionListFragmentBinding
 import com.venkat.digitalclininc.viewmodels.PrescriptionListViewModel
-import com.venkat.digitalclininc.viewmodels.PrescriptionViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
