@@ -2,7 +2,10 @@ package com.venkat.digitalclininc.viewmodels
 
 import android.content.ContentValues
 import android.util.Log
-import androidx.lifecycle.*
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import com.venkat.digitalclinic.apiservice.api.RepositoryServiceManager
 import com.venkat.digitalclinic.apiservice.api.mockdata.EventsMockList
 import com.venkat.digitalclinic.apiservice.models.PatientEvent

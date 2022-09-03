@@ -1,7 +1,7 @@
 package com.venkat.digitalclininc
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 // Single activity and navigated by fragment destinations using Navigation graph

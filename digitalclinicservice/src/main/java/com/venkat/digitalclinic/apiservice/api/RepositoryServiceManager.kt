@@ -2,8 +2,8 @@ package com.venkat.digitalclinic.apiservice.api
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.venkat.digitalclinic.apiservice.api.contracts.IPatientRepository
 import com.venkat.digitalclinic.apiservice.api.contracts.IPatientDetailsRepository
+import com.venkat.digitalclinic.apiservice.api.contracts.IPatientRepository
 import com.venkat.digitalclinic.apiservice.api.repository.PatientDetailsRepository
 import com.venkat.digitalclinic.apiservice.api.repository.PatientRepository
 import com.venkat.digitalclinic.apiservice.models.DigitalClinic

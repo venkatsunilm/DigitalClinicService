@@ -4,9 +4,9 @@
 
 package com.venkat.digitalclinic.apiservice.helper
 
+import com.google.gson.GsonBuilder
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import com.google.gson.GsonBuilder
 
 class RetrofitClient {
     companion object {

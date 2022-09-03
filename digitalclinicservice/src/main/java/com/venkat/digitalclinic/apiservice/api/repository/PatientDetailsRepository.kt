@@ -28,12 +28,13 @@ class PatientDetailsRepository @Inject constructor(@ApplicationContext val conte
 
     private var appPreference: AppPreference = AppPreference.getInstance(context)
 
+    // TODO: Transform the rest methods similar to getEvents Design.
     override suspend fun getEvents(): List<PatientEvent> {
         val token = appPreference.getString(AppPreference.Keys.TOKEN)
         return patientDetailsService.getEvents(token)
     }
 
-    // TODO: Transform the rest methods similar to getEvents Design, Also add retry option .
+    // TODO: Transform the rest methods similar to getEvents Design.
     override fun getPrescriptions(): LiveData<ResponseObject<List<PatientPrescription>>> {
         val responseData: MutableLiveData<ResponseObject<List<PatientPrescription>>> =
             MutableLiveData()

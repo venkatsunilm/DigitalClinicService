@@ -1,7 +1,5 @@
 package com.venkat.digitalclinic.apiservice.api.mockdata
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import com.venkat.digitalclinic.apiservice.models.Instructions
 import com.venkat.digitalclinic.apiservice.models.PatientEvent
 import com.venkat.digitalclinic.apiservice.models.PatientPrescription

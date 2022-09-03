@@ -5,7 +5,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.venkat.digitalclinic.apiservice.models.PatientPrescription
 import com.venkat.digitalclininc.databinding.PrescriptionFragmentBinding
-import com.venkat.digitalclininc.viewmodels.EventViewModel
 import com.venkat.digitalclininc.viewmodels.PrescriptionViewModel
 
 class PrescriptionAdapter(

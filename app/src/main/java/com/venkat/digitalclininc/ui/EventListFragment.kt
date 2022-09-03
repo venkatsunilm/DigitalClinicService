@@ -10,7 +10,6 @@ import androidx.lifecycle.lifecycleScope
 import com.venkat.digitalclininc.adapter.EventAdapter
 import com.venkat.digitalclininc.databinding.EventListFragmentBinding
 import com.venkat.digitalclininc.viewmodels.EventListViewModel
-import com.venkat.digitalclininc.viewmodels.EventViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
