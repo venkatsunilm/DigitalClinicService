@@ -42,28 +42,3 @@ class EventAdapter(
         }
     }
 }
-
-private class EventsDiffCallBack : DiffUtil.ItemCallback<PatientEvent>() {
-
-    //    override fun areItemsTheSame(
-//        oldItem: PatientEvent,
-//        newItem: PatientEvent
-//    ): Boolean {
-//        return false
-////        return oldItem.eventId == newItem.eventId
-//    }
-//
-//    override fun areContentsTheSame(
-//        oldItem: PatientEvent,
-//        newItem: PatientEvent
-//    ): Boolean {
-//        return false
-//    }
-    override fun areItemsTheSame(oldItem: PatientEvent, newItem: PatientEvent): Boolean {
-        TODO("Not yet implemented")
-    }
-
-    override fun areContentsTheSame(oldItem: PatientEvent, newItem: PatientEvent): Boolean {
-        TODO("Not yet implemented")
-    }
-}

@@ -57,12 +57,5 @@ class PatientRepository @Inject constructor() : IPatientRepository {
         const val USERNAME_KEY = "username"
         const val PASSWORD_KEY = "password"
         const val TOKEN_KEY = "token"
-        private var patientRepository: PatientRepository? = null
-        fun getInstance(): PatientRepository {
-            if (patientRepository == null) {
-                patientRepository = PatientRepository()
-            }
-            return patientRepository!!
-        }
     }
 }

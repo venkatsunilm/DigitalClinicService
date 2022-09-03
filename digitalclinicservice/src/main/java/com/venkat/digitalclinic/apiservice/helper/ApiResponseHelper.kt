@@ -6,7 +6,7 @@ package com.venkat.digitalclinic.apiservice.helper
 
 import android.content.Context
 import com.venkat.digitalclinic.apiservice.models.ResponseObject
-import com.venkat.digitalclinic.apiservice.utils.Constant.RETRY_STATUS_CODES
+import com.venkat.digitalclinic.apiservice.utils.RepoConstant.RETRY_STATUS_CODES
 
 // TODO: UNDER CONSTRUCTION
 class ApiResponseHelper {

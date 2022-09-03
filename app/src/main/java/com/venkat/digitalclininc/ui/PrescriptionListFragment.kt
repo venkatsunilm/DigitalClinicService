@@ -19,7 +19,6 @@ class PrescriptionListFragment : Fragment() {
 
     private lateinit var adapter: PrescriptionAdapter
     private lateinit var bindingContext: PrescriptionListFragmentBinding
-    private val prescriptionViewModel: PrescriptionViewModel by viewModels()
     private val prescriptionListViewModel: PrescriptionListViewModel by viewModels()
 
     override fun onCreateView(
