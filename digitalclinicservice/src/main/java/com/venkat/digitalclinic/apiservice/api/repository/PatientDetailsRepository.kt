@@ -3,6 +3,7 @@ package com.venkat.digitalclinic.apiservice.api.repository
 import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.venkat.digitalclinic.apiservice.api.RetryCallback
 import com.venkat.digitalclinic.apiservice.api.contracts.IPatientDetailsRepository
 import com.venkat.digitalclinic.apiservice.api.mockdata.EventsMockList
 import com.venkat.digitalclinic.apiservice.helper.RetrofitClient
@@ -32,12 +33,13 @@ class PatientDetailsRepository @Inject constructor(@ApplicationContext val conte
         return patientDetailsService.getEvents(token)
     }
 
+    // TODO: Transform the rest methods similar to getEvents Design, Also add retry option .
     override fun getPrescriptions(): LiveData<ResponseObject<List<PatientPrescription>>> {
         val responseData: MutableLiveData<ResponseObject<List<PatientPrescription>>> =
             MutableLiveData()
         val token = appPreference.getString(AppPreference.Keys.TOKEN)
         patientDetailsService.getPrescriptions(token)
-            .enqueue(object : Callback<List<PatientPrescription>> {
+            .enqueue(RetryCallback(object : Callback<List<PatientPrescription>> {
 
                 override fun onFailure(call: Call<List<PatientPrescription>>, t: Throwable) {
                     responseData.postValue(
@@ -70,7 +72,7 @@ class PatientDetailsRepository @Inject constructor(@ApplicationContext val conte
                     }
                 }
 
-            })
+            }))
         return responseData
     }
 
@@ -78,7 +80,7 @@ class PatientDetailsRepository @Inject constructor(@ApplicationContext val conte
         val responseData: MutableLiveData<ResponseObject<DigitalClinic>> = MutableLiveData()
         val token = appPreference.getString(AppPreference.Keys.TOKEN)
         patientDetailsService.getDigitalClinic(token)
-            .enqueue(object : Callback<DigitalClinic> {
+            .enqueue(RetryCallback(object : Callback<DigitalClinic> {
 
                 override fun onFailure(call: Call<DigitalClinic>, t: Throwable) {
                     responseData.postValue(ResponseObject(null, t.message))
@@ -106,20 +108,11 @@ class PatientDetailsRepository @Inject constructor(@ApplicationContext val conte
                     }
                 }
 
-            })
+            }))
         return responseData
     }
 
     companion object {
-        private var patientDetailsRepository: PatientDetailsRepository? = null
         const val DATA_KEY = "data"
-
-        // TODO: remove this context and use the hilt context once available
-        fun getInstance(context: Context): PatientDetailsRepository {
-            if (patientDetailsRepository == null) {
-                patientDetailsRepository = PatientDetailsRepository(context)
-            }
-            return patientDetailsRepository!!
-        }
     }
 }

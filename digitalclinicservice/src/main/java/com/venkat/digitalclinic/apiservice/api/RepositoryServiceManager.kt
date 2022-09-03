@@ -35,19 +35,4 @@ class RepositoryServiceManager @Inject constructor(
     override fun getDigitalClinicInfo(): LiveData<ResponseObject<DigitalClinic>> {
         return patientDetailsRepository.getDigitalClinicInfo()
     }
-
-//    companion object {
-//        @Volatile
-//        private var instance: RepositoryServiceManager? = null
-//
-//        fun getInstance(
-//            patientRepository: PatientRepository,
-//            patientDetailsRepository: PatientDetailsRepository
-//        ) = instance ?: synchronized(this) {
-//            instance ?: RepositoryServiceManager(
-//                PatientRepository.getInstance(),
-//                patientDetailsRepository
-//            ).also { instance = it }
-//        }
-//    }
 }
