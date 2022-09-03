@@ -4,8 +4,8 @@ import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.venkat.digitalclinic.apiservice.api.RetryCallback
-import com.venkat.digitalclinic.apiservice.api.contracts.IPatientDetailsRepository
 import com.venkat.digitalclinic.apiservice.api.mockdata.EventsMockList
+import com.venkat.digitalclinic.apiservice.helper.ResponseError
 import com.venkat.digitalclinic.apiservice.helper.RetrofitClient
 import com.venkat.digitalclinic.apiservice.models.DigitalClinic
 import com.venkat.digitalclinic.apiservice.models.PatientEvent
@@ -20,8 +20,7 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class PatientDetailsRepository @Inject constructor(@ApplicationContext val context: Context) :
-    IPatientDetailsRepository {
+class PatientDetailsRepository @Inject constructor(@ApplicationContext val context: Context) {
 
     private var patientDetailsService: IPatientDetailsService = RetrofitClient.getInstance()
         .create(IPatientDetailsService::class.java)
@@ -29,13 +28,17 @@ class PatientDetailsRepository @Inject constructor(@ApplicationContext val conte
     private var appPreference: AppPreference = AppPreference.getInstance(context)
 
     // TODO: Transform the rest methods similar to getEvents Design.
-    override suspend fun getEvents(): List<PatientEvent> {
-        val token = appPreference.getString(AppPreference.Keys.TOKEN)
-        return patientDetailsService.getEvents(token)
+    suspend fun getEvents(): List<PatientEvent> {
+        try {
+            val token = appPreference.getString(AppPreference.Keys.TOKEN)
+            return patientDetailsService.getEvents(token)
+        } catch (error: Throwable) {
+            throw ResponseError("Error fetching events", error)
+        }
     }
 
     // TODO: Transform the rest methods similar to getEvents Design.
-    override fun getPrescriptions(): LiveData<ResponseObject<List<PatientPrescription>>> {
+    fun getPrescriptions(): LiveData<ResponseObject<List<PatientPrescription>>> {
         val responseData: MutableLiveData<ResponseObject<List<PatientPrescription>>> =
             MutableLiveData()
         val token = appPreference.getString(AppPreference.Keys.TOKEN)
@@ -77,7 +80,7 @@ class PatientDetailsRepository @Inject constructor(@ApplicationContext val conte
         return responseData
     }
 
-    override fun getDigitalClinicInfo(): LiveData<ResponseObject<DigitalClinic>> {
+    fun getDigitalClinicInfo(): LiveData<ResponseObject<DigitalClinic>> {
         val responseData: MutableLiveData<ResponseObject<DigitalClinic>> = MutableLiveData()
         val token = appPreference.getString(AppPreference.Keys.TOKEN)
         patientDetailsService.getDigitalClinic(token)
